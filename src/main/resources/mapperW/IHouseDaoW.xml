@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xgh.sportsite.dao.write.IHouseDaoW">
+
+    <!--实体映射-->
+    <resultMap id="house" type="com.xgh.sportsite.entity.House">
+        <!--主键id-->
+        <id property="id" column="id" javaType="Long"/>
+        <!--收藏人id-->
+        <result property="memberId" column="member_id" javaType="long" jdbcType="BIGINT"/>
+        <!--类型（0：场馆  1：教练  2:活动）-->
+        <result property="type" column="type" javaType="int" jdbcType="INTEGER"/>
+        <!--场馆id、教练id、活动id-->
+        <result property="dataId" column="data_id" javaType="long" jdbcType="BIGINT"/>
+        <!--创建时间-->
+        <result property="createDate" column="create_date" javaType="Date" jdbcType="TIMESTAMP"/>
+        <!--修改时间-->
+        <result property="updateDate" column="update_date" javaType="Date" jdbcType="TIMESTAMP"/>
+        <!--状态（0：未收藏  1：收藏）-->
+        <result property="status" column="status" javaType="int" jdbcType="INTEGER"/>
+        <!--备用字段1-->
+        <result property="data1" column="data_1" javaType="String" jdbcType="VARCHAR"/>
+        <!--备用字段2-->
+        <result property="data2" column="data_2" javaType="long" jdbcType="BIGINT"/>
+        <!--备用字段3-->
+        <result property="data3" column="data_3" javaType="int" jdbcType="INTEGER"/>
+        <!--备用字段4-->
+        <result property="data4" column="data_4" javaType="Double" jdbcType="DOUBLE"/>
+    </resultMap>
+
+
+    <insert id="add" parameterType="com.xgh.sportsite.entity.House">
+        <selectKey keyProperty="id" resultType="long" order="AFTER">
+            SELECT max(id) AS value from tb_house
+        </selectKey>
+        INSERT INTO tb_house
+        (id,member_id,type,data_id,create_date,update_date,status,data_1,data_2,data_3,data_4)
+        VALUES
+        (#{id},#{memberId},#{type},#{dataId},#{createDate},#{updateDate},#{status},#{data1},#{data2},#{data3},#{data4})
+    </insert>
+
+
+    <update id="update" parameterType="com.xgh.sportsite.entity.House">
+        UPDATE tb_house
+        SET
+        member_id = #{memberId},
+        type = #{type},
+        data_id = #{dataId},
+        create_date = #{createDate},
+        update_date = #{updateDate},
+        status = #{status},
+        data_1 = #{data1},
+        data_2 = #{data2},
+        data_3 = #{data3},
+        data_4 = #{data4}
+        WHERE id = #{id}
+    </update>
+
+    <update id="batchUpdateByIdList" parameterType="java.util.List">
+        UPDATE tb_house set status=0,update_date=now() where id in
+        <foreach collection="list" item="idItem" index="index" open="("
+                 separator="," close=")">
+            #{idItem}
+        </foreach>
+    </update>
+
+    <update id="batchUpdateList" parameterType="java.util.List">
+        <foreach collection="list" item="item" index="index" open="" close="" separator=";">
+            UPDATE tb_house
+            <set>
+                member_id = #{item.memberId},
+                `type` = #{item.type},
+                data_id = #{item.dataId},
+                create_date = #{item.createDate},
+                update_date = #{item.updateDate},
+                status = #{item.status},
+                data_1 = #{item.data1},
+                data_2 = #{item.data2},
+                data_3 = #{item.data3},
+                data_4 = #{item.data4}
+            </set>
+            where id=#{item.id}
+        </foreach>
+    </update>
+
+    <update id="batchUpdateMap" parameterType="java.util.Map">
+        UPDATE tb_house SET type = #{type},status=-1 WHERE id IN
+        <foreach collection="idList" index="index" item="idItem" open="("
+                 separator="," close=")">
+            #{idItem}
+        </foreach>
+    </update>
+
+    <update id="batchUpdateWithArray" parameterType="java.lang.String">
+        UPDATE tb_house set status=-1 where id in
+        <foreach item="idItem" collection="array" open="(" separator=","
+                 close=")">
+            #{idItem}
+        </foreach>
+    </update>
+
+
+</mapper>

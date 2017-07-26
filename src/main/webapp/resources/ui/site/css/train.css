@@ -1,0 +1,232 @@
+body{
+	background: #fff !important;
+}
+.content {
+	font-family: "微软雅黑";
+	background: #fff;
+}
+.head i{
+	float: left;
+}
+.head span{
+	float: right;
+}
+.head{
+	overflow: hidden;
+	text-align: center;
+	width: 100%;
+	line-height: 80px;
+	background: #fff;
+	font-size: 32px;
+	color: #333;
+}
+.head i img{
+	width: 20px;
+	padding-top: 22px;
+	padding-left: 20px;
+}
+.head span img{
+	width: 37px;
+	padding-top: 24px;
+	padding-right: 20px;
+}
+.list{
+	background: #f8f8f8;
+	border-bottom: 1px solid #eee;
+}
+.list ul{
+	overflow:hidden;
+	width: 100%;
+	margin: 0 auto;
+}
+.list li{
+	float: left;
+    width: 20%;
+    text-align: center;
+    font-size: 24px;
+    line-height: 55px;
+}
+.list .cur{
+	color: #ffac05;
+}
+.list li{
+	color: #4c4c4c;
+}
+/*导航开始*/
+
+.pic{
+	background: #fff;
+	padding-bottom:103px;
+}
+.pic ul{
+	margin:20px 0;
+	width: 90%;
+	margin: 0 auto;
+}
+.pic li{
+	overflow: hidden;
+	border-bottom: 1px solid #ccc;
+}
+.pic li h3{
+	float: left;
+	padding: 26px 0;
+	width: 33%;
+}
+.pic li h3 img{
+	width: 150px;
+	height: 150px;
+}
+.pic li p{
+	width: 60%;
+	float: left;
+	font-size: 24px;
+	padding: 20px 0;
+}
+.pic li p b{
+	font-weight: normal;
+	font-size: 26px;
+	color: #333;
+	font-family: "微软雅黑";
+	display: inline-block;
+	line-height: 34px;
+}
+.pic li p b.sex_bar{
+	margin-left: 72px;
+}
+.pic li  span{
+	display: block;
+	padding: 10px 0;
+	max-width: 310px;
+	overflow: hidden;
+	text-overflow:ellipsis;
+	white-space: nowrap;
+}
+
+.pic li i{
+	overflow: hidden;
+	float: left;
+}
+.pic li i a{
+	float: left;
+	border:1px solid #ffac05;
+	display: block;
+	color: #ffac05;
+	padding: 5px 15px;
+	border-radius: 5px;
+}
+.pic li i.rejected{
+	background: #ffac05;
+	width: 34px;
+	height: 34px;
+	text-align: center;
+	line-height: 34px;
+	color: #fff;
+	display: inline-block;
+	border-radius: 10px;
+}
+.tb{
+	width:100%;
+	background: #f5f5f5;
+	position: fixed;
+	bottom: 0;
+}
+.tb ul{
+	width:100%;
+	margin:0 auto;
+	padding: 14px 0;
+	overflow: hidden;
+}
+.tb li{
+	float: left;
+	width: 20%;
+	text-align: center;
+	line-height: 20px;
+}
+.tb ul li a{
+	color: #333;
+	font-size: 24px;
+	display: inline-block;
+}
+.tb .cur a{
+	color: #ffac05;
+}
+.tb ul li img{
+	width: 44px;
+	height: 41px;
+	margin-bottom: 9px;
+}
+@media screen and (min-width: 1024px) {
+	body,html{
+		font-size: 60px;
+	}
+	.head{
+		line-height: .80rem;
+		font-size: .32rem;
+	}
+	.head i img{
+		width: .20rem;
+		padding-top: .22rem;
+		padding-left: .20rem;
+	}
+	.head span img{
+		width: .37rem;
+		padding-top: .24rem;
+		padding-right: .20rem;
+	}
+	.list li{
+		font-size: .24rem;
+		line-height: .55rem;
+	}
+	/*导航开始*/
+
+	.pic{
+		padding-bottom:1.03rem;
+	}
+	.pic li h3{
+		padding: .26rem 0;
+		width: 20%;
+	}
+	.pic li h3 img{
+		width: 1.50rem;
+		height: 1.50rem;
+	}
+	.pic li p{
+		font-size: .24rem;
+		padding: .20rem 0;
+	}
+	.pic li p b{
+		font-size: .26rem;
+		line-height: .34rem;
+	}
+	.pic li p b.sex_bar{
+		margin-left: .72rem;
+	}
+	.pic li  span{
+		padding: .10rem 0;
+		max-width: 3.10rem;
+	}
+	.pic li i a{
+		padding: 0.05rem .15rem;
+		border-radius: 0.05rem;
+	}
+	.pic li i.rejected{
+		width: .34rem;
+		height: .34rem;
+		line-height: .34rem;
+		border-radius: .10rem;
+	}
+	.tb ul{
+		padding: .14rem 0;
+	}
+	.tb li{
+		line-height: .20rem;
+	}
+	.tb ul li a{
+		font-size: .24rem;
+	}
+	.tb ul li img{
+		width: .44rem;
+		height: .41rem;
+		margin-bottom: 0.09rem;
+	}
+}

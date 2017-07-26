@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xgh.sportsite.dao.write.IActivityDaoW">
+
+    <!--实体映射-->
+    <resultMap id="activity" type="com.xgh.sportsite.entity.Activity">
+        <!--唯一标示-->
+        <id property="id" column="id" javaType="Long"/>
+        <!--代理id-->
+        <result property="unitId" column="unit_id" javaType="long" jdbcType="BIGINT"/>
+        <!--创建人id-->
+        <result property="userId" column="user_id" javaType="long" jdbcType="BIGINT"/>
+        <!--活动名称-->
+        <result property="activityName" column="activity_name" javaType="String" jdbcType="VARCHAR"/>
+        <!--活动类型（0：个人  1：团体）-->
+        <result property="activityType" column="activity_type" javaType="int" jdbcType="INTEGER"/>
+        <!--活动主办方-->
+        <result property="activityOrganizer" column="activity_organizer" javaType="String" jdbcType="VARCHAR"/>
+        <!--活动人数-->
+        <result property="activityCount" column="activity_count" javaType="int" jdbcType="INTEGER"/>
+        <!--活动地点-->
+        <result property="activityAddress" column="activity_address" javaType="String" jdbcType="VARCHAR"/>
+        <!--活动运动项id-->
+        <result property="sportId" column="sport_id" javaType="long" jdbcType="BIGINT"/>
+        <!--活动场馆id-->
+        <result property="venueId" column="venue_id" javaType="long" jdbcType="BIGINT"/>
+        <!--活动费用-->
+        <result property="activityPrice" column="activity_price" javaType="Double" jdbcType="DOUBLE"/>
+        <!--活动介绍-->
+        <result property="activityIntroduce" column="activity_introduce" javaType="String" jdbcType="VARCHAR"/>
+        <!--活动联系人-->
+        <result property="activityContacts" column="activity_contacts" javaType="String" jdbcType="VARCHAR"/>
+        <!--活动联系人电话-->
+        <result property="contactsPhone" column="contacts_phone" javaType="String" jdbcType="VARCHAR"/>
+        <!--活动图片路径-->
+        <result property="activityPath" column="activity_path" javaType="String" jdbcType="VARCHAR"/>
+        <!--活动图片绝对路径-->
+        <result property="activityRealPath" column="activity_real_path" javaType="String" jdbcType="VARCHAR"/>
+        <!--活动申明-->
+        <result property="declares" column="declares" javaType="String" jdbcType="VARCHAR"/>
+        <!--是否加入热门活动（0：否  1：是）-->
+        <result property="isRecommend" column="is_recommend" javaType="int" jdbcType="INTEGER"/>
+        <!--收费方式（0：收费  1：免费  2：AA制）-->
+        <result property="isFree" column="is_free" javaType="int" jdbcType="INTEGER"/>
+        <!--活动开始时间-->
+        <result property="startDate" column="start_date" javaType="Date" jdbcType="TIMESTAMP"/>
+        <!--活动结束日期-->
+        <result property="endDate" column="end_date" javaType="Date" jdbcType="TIMESTAMP"/>
+        <!--活动报名截止日期-->
+        <result property="enrollDate" column="enroll_date" javaType="Date" jdbcType="TIMESTAMP"/>
+        <!--创建时间-->
+        <result property="createDate" column="create_date" javaType="Date" jdbcType="TIMESTAMP"/>
+        <!--修改时间-->
+        <result property="updateDate" column="update_date" javaType="Date" jdbcType="TIMESTAMP"/>
+        <!--排序-->
+        <result property="ord" column="ord" javaType="int" jdbcType="INTEGER"/>
+        <!--是否通过审核（0：未审核  1：通过  2：未通过）-->
+        <result property="isCheck" column="is_check" javaType="int" jdbcType="INTEGER"/>
+        <!--状态（-1：已删除  0：正常  1：未删除）-->
+        <result property="status" column="status" javaType="int" jdbcType="INTEGER"/>
+        <!--区域id-->
+        <result property="data1" column="data_1" javaType="long" jdbcType="BIGINT"/>
+        <!--备用字段2-->
+        <result property="data2" column="data_2" javaType="long" jdbcType="BIGINT"/>
+        <!--备用字段3-->
+        <result property="data3" column="data_3" javaType="long" jdbcType="BIGINT"/>
+        <!--备用字段4-->
+        <result property="data4" column="data_4" javaType="Double" jdbcType="DOUBLE"/>
+        <!--备用字段5-->
+        <result property="data5" column="data_5" javaType="Double" jdbcType="DOUBLE"/>
+        <!--备用字段6-->
+        <result property="data6" column="data_6" javaType="int" jdbcType="INTEGER"/>
+        <!--备用字段7-->
+        <result property="data7" column="data_7" javaType="int" jdbcType="INTEGER"/>
+        <!--备用字段8-->
+        <result property="data8" column="data_8" javaType="int" jdbcType="INTEGER"/>
+        <!--区域编码-->
+        <result property="data9" column="data_9" javaType="String" jdbcType="VARCHAR"/>
+        <!--备用字段10-->
+        <result property="data10" column="data_10" javaType="String" jdbcType="VARCHAR"/>
+        <!--备用字段11-->
+        <result property="data11" column="data_11" javaType="String" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <!-- 添加 -->
+    <insert id="add" parameterType="com.xgh.sportsite.entity.Activity">
+        INSERT INTO tb_activity
+        (id,unit_id,user_id,activity_name,activity_type,activity_organizer,activity_count,activity_address,sport_id,venue_id,activity_price,activity_introduce,activity_contacts,contacts_phone,activity_path,activity_real_path,declares,is_recommend,is_free,start_date,end_date,enroll_date,create_date,update_date,ord,is_check,status,data_1,data_2,data_3,data_4,data_5,data_6,data_7,data_8,data_9,data_10,data_11)
+        VALUES
+        (#{id},#{unitId},#{userId},#{activityName},#{activityType},#{activityOrganizer},#{activityCount},#{activityAddress},#{sportId},#{venueId},#{activityPrice},#{activityIntroduce},#{activityContacts},#{contactsPhone},#{activityPath},#{activityRealPath},#{declares},#{isRecommend},#{isFree},#{startDate},#{endDate},#{enrollDate},#{createDate},#{updateDate},#{ord},#{isCheck},#{status},#{data1},#{data2},#{data3},#{data4},#{data5},#{data6},#{data7},#{data8},#{data9},#{data10},#{data11})
+    </insert>
+
+    <!-- 修 改-->
+    <update id="update" parameterType="com.xgh.sportsite.entity.Activity">
+        UPDATE tb_activity
+        SET
+        unit_id = #{unitId},
+        user_id = #{userId},
+        activity_name = #{activityName},
+        activity_type = #{activityType},
+        activity_organizer = #{activityOrganizer},
+        activity_count = #{activityCount},
+        activity_address = #{activityAddress},
+        sport_id = #{sportId},
+        venue_id = #{venueId},
+        activity_price = #{activityPrice},
+        activity_introduce = #{activityIntroduce},
+        activity_contacts = #{activityContacts},
+        contacts_phone = #{contactsPhone},
+        activity_path = #{activityPath},
+        activity_real_path = #{activityRealPath},
+        declares = #{declares},
+        is_recommend = #{isRecommend},
+        is_free = #{isFree},
+        start_date = #{startDate},
+        end_date = #{endDate},
+        enroll_date = #{enrollDate},
+        create_date = #{createDate},
+        update_date = #{updateDate},
+        ord = #{ord},
+        is_check = #{isCheck},
+        status = #{status},
+        data_1 = #{data1},
+        data_2 = #{data2},
+        data_3 = #{data3},
+        data_4 = #{data4},
+        data_5 = #{data5},
+        data_6 = #{data6},
+        data_7 = #{data7},
+        data_8 = #{data8},
+        data_9 = #{data9},
+        data_10 = #{data10},
+        data_11 = #{data11}
+        WHERE id = #{id}
+    </update>
+
+</mapper>

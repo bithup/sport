@@ -1,0 +1,282 @@
+body{
+	background: #fff!important;
+}
+.content{
+	font-family: "微软雅黑";
+}
+.head .fh{
+	float: left;
+	padding:4px 0 4px 20px;
+
+}
+
+.head .fh img{
+	width:20px;
+}
+.head span{
+	float: right;
+	padding-right: 20px;
+	color: #333;
+}
+.head span a{
+	font-size: 16px;
+}
+.head{
+	overflow: hidden;
+	text-align: center;
+	width: 100%;
+	height: 80px;
+	line-height: 80px;
+	background: #fff;
+	font-size: 32px;
+	color: #333;
+	border-bottom: 1px solid #ccc;
+}
+
+
+/*列表开始*/
+.list{
+	width: 100%;
+	border-bottom:1px solid #ccc;
+	position: relative;
+}
+.list ul{
+	overflow: hidden;
+
+}
+.list li{
+	float: left;
+	line-height: 60px;
+	width: 33.333%;
+	text-align: center;
+	font-size: 28px;
+	position: relative;
+}
+.list li a{
+	display:block;
+	color: #666;
+}
+.list .cur{
+	color: #ffb400;
+	border-bottom: 2px solid #ffb400;
+	display: block;
+	text-decoration: none; 
+}
+.list ul li img{
+	width: 12px;
+    padding-left: 6px;
+}
+.list .hidden_box{
+	width: 33.333%;
+	position: absolute;
+	top: 63px;
+	z-index: 9999;
+	display: none;
+}
+.list .hidden_box li{
+	width: 100%;
+	text-align: center;
+	padding:5px 0;
+	border-bottom: 1px solid #fff;
+	color: #fff;
+	background: #ccc;
+}
+.list .hidden_box li a{
+	color: #fff;
+}
+.changguan_memu{
+	left: 0px;
+}
+.jiaolian_memu{
+	left: 213px;
+}
+.huodong_memu{
+	left: 426px;
+}
+.pic{
+	background: #fff;
+}
+.pic ul{
+	width: 90%;
+	margin: 0 auto;
+}
+.pic li{
+	overflow: hidden;
+	border-bottom: 1px solid #ccc;
+}
+.pic li h3{
+	float: left;
+	padding: 26px 0;
+	width: 33%;
+}
+.pic li h3 img{
+	width: 150px;
+	height: 150px;
+}
+.pic li p{
+	width: 60%;
+	float: left;
+	font-size: 28px;
+	padding: 20px 0;
+}
+.pic li p b{
+	font-weight: normal;
+	font-size: 28px;
+	color: #333;
+	font-family: "微软雅黑";
+	display: inline-block;
+	line-height: 34px;
+}
+.pic li p b.sex_bar{
+	margin-left: 72px;
+}
+.pic li  span{
+	display: block;
+	padding: 10px 0;
+	max-width: 310px;
+	overflow: hidden;
+	text-overflow:ellipsis;
+	white-space: nowrap;
+}
+
+.pic li i{
+	overflow: hidden;
+	display: inline-block;
+}
+.pic li i a{
+	float: left;
+	border:1px solid #ffac05;
+	display: block;
+	color: #ffac05;
+	padding: 5px 15px;
+	border-radius: 5px;
+}
+.pic li i.rejected{
+	background: #ffac05;
+	width: 34px;
+	height: 34px;
+	text-align: center;
+	line-height: 34px;
+	color: #fff;
+	display: inline-block;
+	border-radius: 10px;
+}
+.font{
+	width: 60%;
+    float: right;
+}
+.font p{
+	padding-top: 6px;
+
+}
+.font .b{
+	font-size: 16px;
+	color: #333;
+}
+
+.font .color a{
+	color: #ffa104;
+    border: 1px solid;
+    width: 60px;
+    line-height: 30px;
+    text-align: center;
+    position: absolute;
+    right: 30px;
+}
+@media screen and (min-width: 1024px) {
+	body,html{
+		font-size: 60px;
+	}
+	.head .fh{
+		padding:0.04rem 0 0.04rem .2rem;
+
+	}
+
+	.head .fh img{
+		width:.2rem;
+	}
+	.head span{
+		padding-right: .2rem;
+	}
+	.head span a{
+		font-size: .16rem;
+	}
+	.head{
+		height: .8rem;
+		line-height: .8rem;
+		font-size: .32rem;
+	}
+
+
+	/*列表开始*/
+	.list li{
+		line-height: .6rem;
+		font-size: .28rem;
+	}
+	.list ul li img{
+		width: .12rem;
+		padding-left: 0.06rem;
+	}
+	.list .hidden_box{
+		top: .63rem;
+	}
+	.list .hidden_box li{
+		padding:0.05rem 0;
+	}
+	.jiaolian_memu{
+		left: 3.55rem;
+	}
+	.huodong_memu{
+		left: 7.1rem;
+	}
+	.pic ul{
+		width: 93%;
+	}
+	.pic li h3{
+		padding: .26rem 0;
+		width: 20%;
+	}
+	.pic li h3 img{
+		width: 1.5rem;
+		height: 1.5rem;
+	}
+	.pic li p{
+		font-size: .28rem;
+		padding: .2rem 0;
+	}
+	.pic li p b{
+		font-size: .28rem;
+		line-height: .34rem;
+	}
+	.pic li p b.sex_bar{
+		margin-left: .72rem;
+	}
+	.pic li  span{
+		padding: .1rem 0;
+		max-width: 3.10rem;
+	}
+
+	.pic li i a{
+		padding: 0.05rem .15rem;
+		border-radius: 0.05rem;
+	}
+	.pic li i.rejected{
+		width: .34rem;
+		height: .34rem;
+		line-height: .34rem;
+		border-radius: .1rem;
+	}
+	.font p{
+		padding-top: 0.06rem;
+
+	}
+	.font .b{
+		font-size: .16rem;
+	}
+
+	.font .color a{
+		width: .6rem;
+		line-height: .3rem;
+		right: .3rem;
+	}
+}

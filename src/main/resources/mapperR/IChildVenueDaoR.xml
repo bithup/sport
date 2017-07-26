@@ -1,0 +1,353 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+		"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xgh.sportsite.dao.read.IChildVenueDaoR">
+
+	<resultMap id="childVenueMap" type="com.xgh.sportsite.entity.ChildVenue">
+		<!--主键id-->
+		<id property="id" column="id" javaType="Long"/>
+		<!--分场馆名称-->
+		<result property="venueName" column="venue_name" javaType="String" jdbcType="VARCHAR"/>
+		<!--运动类型id-->
+		<result property="sportId" column="sport_id" javaType="long" jdbcType="BIGINT"/>
+		<!--场馆编号-->
+		<result property="venueNo" column="venue_no" javaType="String" jdbcType="VARCHAR"/>
+		<!--所属场馆id-->
+		<result property="parentId" column="parent_id" javaType="long" jdbcType="BIGINT"/>
+		<!--主图存储路径-->
+		<result property="pictureUrl" column="picture_url" javaType="String" jdbcType="VARCHAR"/>
+		<!--主图存储绝对路径-->
+		<result property="picRealPath" column="pic_real_path" javaType="String" jdbcType="VARCHAR"/>
+		<!--单价-->
+		<result property="price" column="price" javaType="Double" jdbcType="DOUBLE"/>
+		<!--优惠价-->
+		<result property="salesPrice" column="sales_price" javaType="Double" jdbcType="DOUBLE"/>
+		<!--计量单位（1小时、1天等）-->
+		<result property="unit" column="unit" javaType="String" jdbcType="VARCHAR"/>
+		<!--分场馆服务-->
+		<result property="serviceInfo" column="service_info" javaType="String" jdbcType="VARCHAR"/>
+		<!--小提示-->
+		<result property="tips" column="tips" javaType="String" jdbcType="VARCHAR"/>
+		<!--排序-->
+		<result property="ord" column="ord" javaType="long" jdbcType="BIGINT"/>
+		<!--场馆设备-->
+		<result property="facility" column="facility" javaType="String" jdbcType="VARCHAR"/>
+		<!--是否是热门场馆（0：不是  1：是）-->
+		<result property="isRecommend" column="is_recommend" javaType="int" jdbcType="INTEGER"/>
+		<!--容纳人数（**最大人数）-->
+		<result property="capacity" column="capacity" javaType="int" jdbcType="INTEGER"/>
+		<!--状态（-1:已删除   0：正常  1:未删除）-->
+		<result property="status" column="status" javaType="int" jdbcType="INTEGER"/>
+		<!--创建时间-->
+		<result property="createDate" column="create_date" javaType="Date" jdbcType="TIMESTAMP"/>
+		<!--修改时间-->
+		<result property="updateDate" column="update_date" javaType="Date" jdbcType="TIMESTAMP"/>
+		<!--备用字段1-->
+		<result property="data1" column="data_1" javaType="String" jdbcType="VARCHAR"/>
+		<!--备用字段2-->
+		<result property="data2" column="data_2" javaType="String" jdbcType="VARCHAR"/>
+		<!--备用字段3-->
+		<result property="data3" column="data_3" javaType="long" jdbcType="BIGINT"/>
+		<!--备用字段4-->
+		<result property="data4" column="data_4" javaType="long" jdbcType="BIGINT"/>
+		<!--备用字段5-->
+		<result property="data5" column="data_5" javaType="int" jdbcType="INTEGER"/>
+		<!--备用字段6-->
+		<result property="data6" column="data_6" javaType="int" jdbcType="INTEGER"/>
+		<!--备用字段7-->
+		<result property="data7" column="data_7" javaType="Double" jdbcType="DOUBLE"/>
+		<!--备用字段8-->
+		<result property="data8" column="data_8" javaType="Double" jdbcType="DOUBLE"/>
+	</resultMap>
+
+
+	<sql id="Base_Column_List">
+		id,	venue_name,	sport_id,	venue_no,	parent_id,	picture_url,	pic_real_path,	price,	sales_price,	unit,	service_info,	tips,	ord,	facility,	is_recommend,	capacity,	status,	create_date,	update_date,	data_1,	data_2,	data_3,	data_4,	data_5,	data_6,	data_7,	data_8
+	</sql>
+
+	<select id="get" resultMap="childVenueMap" parameterType="java.lang.Long">
+		SELECT
+		<include refid="Base_Column_List"/>
+		FROM tb_child_venue
+		WHERE id = #{id}
+	</select>
+
+	<select id="getListPage" parameterType="hashmap" resultType="hashmap">
+		SELECT
+		cv.id,
+		cv.picture_url AS pictureUrl,
+		cv.pic_real_path AS picRealPath,
+		cv.price,
+		cv.sales_price AS salesPrice,
+		cv.sport_id AS sportId,
+		cv.venue_name AS venueName,
+		z.`name` AS zoneName,
+		v.is_refund AS isRefund
+		FROM
+		tb_child_venue cv
+		INNER JOIN tb_venue v ON cv.parent_id = v.id
+		LEFT JOIN tb_zone z ON v.zone_id = z.id
+		WHERE
+		cv.`status` >= 0
+		AND v.`status` >= 0
+		AND v.is_check = 1
+		<if test="sportId != null and ''!=sportId">
+			AND cv.sport_id = #{sportId}
+		</if>
+		<if test="zoneId != null and ''!=zoneId">
+			AND v.zone_id = #{zoneId}
+		</if>
+		<if test="pZoneId != null and ''!=pZoneId">
+			AND v.zone_id IN (
+			SELECT
+			GROUP_CONCAT(z.id)
+			FROM
+			tb_zone z
+			WHERE
+			z.pid = #{pZoneId}
+			)
+		</if>
+		<if test="venueName!=null and venueName!='' ">
+			AND cv.venue_name like '%${venueName}%'
+		</if>
+		GROUP BY cv.venue_name
+		ORDER BY
+		<if test="isPrice != null and ''!=isPrice">
+			cv.sales_price,
+		</if>
+		<if test="isSize != null and ''!=isSize">
+			cv.capacity,
+		</if>
+		cv.create_date DESC,cv.ord
+		limit ${(page-1)*pagesize},${pagesize}
+	</select>
+
+
+	<select id="getDetail" parameterType="long" resultType="hashmap">
+		SELECT
+		cv.id,
+		cv.venue_name AS venueName,
+		cv.sport_id AS kindsId,
+		cv.parent_id AS parentId,
+		cv.picture_url AS pictureUrl,
+		cv.pic_real_path AS picRealPath,
+		cv.price,
+		cv.sales_price AS salesPrice,
+		cv.unit,
+		cv.tips,
+		cv.data_5 AS data5,
+		v.is_refund AS isRefund,
+		v.refund_deadline AS refundDeadline,
+		v.business_time AS businessTime,
+		v.bus_info AS busInfo,
+		v.subway_info AS subwayInfo,
+		v.hardware,
+		v.service_info AS serviceInfo,
+		v.address,
+		v.telephone,
+		v.mobile AS telPhone,
+		k.`name` AS kindsName
+		FROM
+		tb_child_venue cv
+		INNER JOIN tb_venue v ON cv.parent_id = v.id
+		LEFT JOIN tb_kinds k ON cv.sport_id = k.id
+		WHERE
+		cv.id = #{id}
+	</select>
+
+	<select id="getVenueByPid" parameterType="hashmap" resultType="hashmap">
+		SELECT
+		cv.id,
+		cv.price,
+		cv.sales_price as salesPrice,
+		cv.venue_name as venueName,
+		cv.venue_no as venueNo,
+		cv.capacity,
+		cv.facility,
+		cv.is_recommend as isRecommend,
+		cv.picture_url as pictureUrl,
+		cv.pic_real_path as picRealPath,
+		cv.service_info as serviceInfo,
+		cv.sport_id as sportId
+		FROM
+		tb_child_venue cv
+		WHERE
+		cv.`status` >= 0
+		AND cv.parent_id = #{parentId}
+		AND cv.sport_id = #{sportId}
+		ORDER BY
+		cv.venue_no
+	</select>
+
+
+	<select id="getRecommendVenue" parameterType="hashmap" resultType="hashmap">
+		SELECT
+		cv.id,
+		cv.picture_url AS pictureUrl,
+		cv.pic_real_path AS picRealPath,
+		cv.price,
+		cv.sales_price AS salesPrice,
+		cv.sport_id AS sportId,
+		cv.venue_name AS venueName,
+		z.`name` AS zoneName,
+		v.is_refund AS isRefund
+		FROM
+		tb_child_venue cv
+		INNER JOIN tb_venue v ON cv.parent_id = v.id
+		LEFT JOIN tb_zone z ON v.zone_id = z.id
+		WHERE
+		LOCATE(v.zone_id , (
+		SELECT
+		GROUP_CONCAT(z.id)
+		FROM
+		tb_zone z
+		WHERE
+		z.pid = (
+		SELECT
+		z.id
+		FROM
+		tb_zone z
+		WHERE
+		z. NAME LIKE '%${zoneName}%'
+		)
+		))>0
+		AND v.`status` >= 0
+		AND cv.`status` >= 0
+		AND v.is_check = 1
+		AND cv.is_recommend = 1
+		ORDER BY
+		cv.ord,
+		cv.create_date DESC
+		LIMIT 5
+	</select>
+
+	<select id="getIndexSearch" parameterType="hashmap" resultType="hashmap">
+		SELECT
+		cv.id,
+		cv.is_recommend AS isRecommend,
+		cv.picture_url AS pictureUrl,
+		cv.pic_real_path AS picRealPath,
+		cv.venue_name AS goodsName,
+		cv.price,
+		cv.sales_price AS salesPrice,
+		v.introduction AS intro,
+		'' AS startDate,
+		k.`name` AS kindsName,
+		z.`name` AS zoneName,
+		v.is_refund AS isRefund,
+		0 AS isFree,
+		1 AS type
+		FROM
+		tb_child_venue cv
+		INNER JOIN tb_venue v ON cv.parent_id = v.id
+		LEFT JOIN tb_kinds k ON k.id = cv.sport_id
+		LEFT JOIN tb_zone z ON z.id = v.zone_id
+		WHERE
+		cv.`status` >= 0
+		AND v.`status` >= 0
+		AND v.is_check = 1
+		AND cv.venue_name LIKE '%${indexCondition}%'
+		OR k.`name` LIKE '%${indexCondition}%'
+		UNION
+		(
+		SELECT
+		c.id,
+		c.is_recommend AS isRecommend,
+		c.head_path AS pictureUrl,
+		c.head_real_path AS picRealPath,
+		c.`name` AS goodsName,
+		0 AS price,
+		0 AS salesPrice,
+		c.intro,
+		'' AS startDate,
+		k.`name` AS kindsName,
+		z.`name` AS zoneName,
+		0 AS isRefund,
+		0 AS isFree,
+		2 AS type
+		FROM
+		tb_coach c
+		LEFT JOIN tb_kinds k ON k.id = c.sport_id
+		LEFT JOIN tb_zone z ON z.id = c.data_6
+		WHERE
+		c.`status` >= 0
+		AND c.is_check = 1
+		AND c.`name` LIKE '%${indexCondition}%'
+		OR k.`name` LIKE '%${indexCondition}%'
+		)
+		UNION
+		(
+		SELECT
+		a.id,
+		a.is_recommend AS isRecommend,
+		a.activity_path AS pictureUrl,
+		a.activity_real_path AS picRealPath,
+		a.activity_name AS goodsName,
+		a.activity_price AS price,
+		a.activity_price AS salesPrice,
+		a.activity_introduce AS intro,
+		a.start_date AS startDate,
+		k.`name` AS kindsName,
+		z.`name` AS zoneName,
+		0 AS isRefund,
+		a.is_free AS isFree,
+		3 AS type
+		FROM
+		tb_activity a
+		LEFT JOIN tb_kinds k ON k.id = a.sport_id
+		LEFT JOIN tb_zone z ON z.id = a.data_1
+		WHERE
+		a.`status` >= 0
+		AND a.is_check = 1
+		AND a.activity_name LIKE '%${indexCondition}%'
+		OR k.`name` LIKE '%${indexCondition}%'
+		)
+		ORDER BY
+		RAND()
+		LIMIT ${(page-1)*pagesize},${pagesize}
+	</select>
+
+	<select id="getChildVenue" resultType="hashmap"  parameterType="hashmap">
+		SELECT
+		tcv.id AS id,
+		tcv.venue_name AS childVenueName,
+		tcv.sport_id AS sportId,
+		tcv.venue_no AS venueNo,
+		tcv.parent_id AS parentId,
+		tcv.picture_url AS pictureUrl,
+		tcv.pic_real_path AS picRealPath,
+		tcv.price AS price,
+		tcv.sales_price AS salesPrice,
+		tcv.unit AS unit,
+		tcv.service_info AS serviceInfo,
+		tcv.tips AS tips,
+		tcv.ord AS ord,
+		tcv.facility AS facility,
+		tcv.is_recommend AS isRecommend,
+		tcv.capacity AS capacity,
+		tcv.status AS status,
+		tcv.create_date AS createDate,
+		tcv.update_date AS updateDate,
+		tcv.data_1 AS data1,
+		tcv.data_2 AS data2,
+		tcv.data_3 AS data3,
+		tcv.data_4 AS data4,
+		tcv.data_5 AS data5,
+		tcv.data_6 AS data6,
+		tcv.data_7 AS data7,
+		tcv.data_8 AS data8,
+		tv.`name` AS venueName,
+		tk.`name` AS kindsName
+		FROM tb_child_venue tcv
+		LEFT JOIN tb_venue tv ON tcv.parent_id = tv.id
+		LEFT JOIN tb_kinds tk ON tcv.sport_id = tk.id
+		WHERE tcv.status != -1
+		<if test="childVenueId != null and ''!=childVenueId">
+			AND tcv.id = #{childVenueId}
+		</if>
+		<if test="venueId != null and ''!=venueId">
+			AND tcv.parent_id = #{venueId}
+		</if>
+	</select>
+
+</mapper>

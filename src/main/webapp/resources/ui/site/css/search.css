@@ -1,0 +1,187 @@
+
+body{
+	background: #fff!important;
+}
+.content {
+	font-family: "微软雅黑";
+	background: #fff;
+}
+.head{
+	overflow: hidden;
+	height: 80px;
+	background: #fff;
+	border-bottom: 1px solid #ccc;
+}
+.head i{
+		 display: inline-block; 
+		 width: 20px;
+		 height: 61px;
+		 background: url(../images/ret.png) no-repeat 0 0; 
+		 background-size:cover; 
+		 float: left; 
+		 margin: 10px 0 0 10px;
+}
+.head .left{
+	float: left;
+	width: 69%;
+	margin-left: 7%;
+}
+.head input{
+	width:100%;
+	height: 56px;
+	background: #f5f5f5;
+	border-radius: 30px;
+	margin:12px 0;
+	border:none;
+	text-indent: 1em;
+	font-size: 24px;
+}
+.head .right{
+	float: right;
+	margin-right: 3%;
+	line-height: 80px;
+	font-size: 28px;
+}
+.history_wrap{
+	width: 100%;
+	margin-top: 20px;
+}
+.pic{
+	background: #fff;	
+}
+.pic ul{
+	margin:20px 0;
+	width: 90%;
+	margin: 0 auto;
+
+}
+.pic li{
+	overflow: hidden;
+	border-bottom: 1px solid #ccc;
+
+}
+.pic li h3{
+	float: left;
+	padding: 26px 0;
+	width: 40%;
+
+}
+.pic li h3 img{
+	width: 80%;
+}
+.pic li p{
+	width: 60%;
+	float: right;
+	font-size: 16px;
+	padding: 20px 0;
+}
+.pic li p b{
+	font-weight: normal;
+    font-size: 18px;
+    color: #333;
+    font-family: "微软雅黑";
+    display: inline-block;
+    line-height: 34px;
+}
+.pic li  span{
+	display: block;
+	padding: 10px 0;
+	max-width: 310px;
+	overflow: hidden;
+	text-overflow:ellipsis;
+	white-space: nowrap;
+}
+.pic li i.spe_status{
+	color: #ffac05;
+	border: 1px solid #ffac05;
+	padding: 0 5px;
+	border-radius: 5px;
+}
+
+.pic li i{
+	overflow: hidden;
+	display: inline-block;
+}
+.pic li i a{
+	float: left;
+	border:1px solid #ffac05;
+	display: block;
+	color: #ffac05;
+	padding: 5px 15px;
+	border-radius: 5px;
+}
+.pic li i.rejected{
+	background: #ffac05;
+	width: 34px;
+	height: 34px;
+	text-align: center;
+	line-height: 34px;
+	color: #fff;
+	display: inline-block;
+	border-radius: 10px;
+}
+@media screen and (min-width: 1024px) {
+	body,html{
+		font-size: 60px;
+	}
+	.head{
+		height: .8rem;
+	}
+	.head i{
+		width: .2rem;
+		height: .61rem;
+		background: url(../images/ret.png) no-repeat 0 0;
+		background-size:cover;
+		margin: .1rem 0 0 .1rem;
+	}
+	.head input{
+		height: .56rem;
+		border-radius: .3rem;
+		margin:.12rem 0;
+		font-size: .24rem;
+	}
+	.head .right{
+		line-height: .8rem;
+		font-size: .28rem;
+	}
+	.history_wrap{
+		margin-top: .2rem;
+	}
+	.pic ul{
+		margin:.2rem 0;
+
+	}
+	.pic li h3{
+		padding: .26rem 0;
+	}
+	.pic li h3 img{
+		width: 80%;
+	}
+	.pic li p{
+		font-size: .16rem;
+		padding: .2rem 0;
+	}
+	.pic li p b{
+		font-size: .18rem;
+		line-height: .34rem;
+	}
+	.pic li  span{
+		padding: .1rem 0;
+		max-width: 3.1rem;
+	}
+	.pic li i.spe_status{
+		padding: 0 0.05rem;
+		border-radius: 0.05rem;
+	}
+
+	.pic li i a{
+		padding: 0.05rem .15rem;
+		border-radius: 0.05rem;
+	}
+	.pic li i.rejected{
+		width: .34rem;
+		height: .34rem;
+		line-height: .34rem;
+		border-radius: .1rem;
+	}
+}

@@ -1,0 +1,291 @@
+.wrap{
+	font-family: "微软雅黑";
+	color: #333;
+
+}
+.content{
+	background: #fff;
+}
+.head {
+	font-size: 32px;
+	line-height: 80px;
+	background: #fff;
+	text-align: center;
+	overflow: hidden;
+	color: #333;
+	border-bottom: 1px solid #ccc;
+}
+.head .return{
+	float: left;
+	padding-left: 20px;
+}
+.head .return a{
+	display: inline-block;
+	width: 20px;
+	line-height: 80px;
+}
+
+.head .coll{
+	float: right;
+	padding-right: 20px;
+}
+.head .coll img{
+	width: 28px;
+}
+.head img{
+	width: 20px;
+	margin-top: 21px;
+}
+.coll .coll_collect{
+	margin-top: 13px;
+}
+.collect{
+	width: 28px;
+	height: 78px;
+	background: url(../images/collect01.png) 0 center no-repeat;
+	background-size: 64%;
+	line-height: 51px;
+}
+.collect01{
+	background: url(../images/collect.png) 0 center no-repeat;
+	background-size: 64%;
+}
+/*图片开始*/
+
+.pic{
+	overflow: hidden;
+	border-bottom:1px solid #ccc;
+}
+.pic ul{
+	overflow: hidden;
+	margin: 20px auto;
+	padding-left: 16px;
+	float: left;
+}
+.pic li{
+	float: left;
+	width: 33%;
+
+
+}
+.pic li img{
+	float: left;
+	width: 150px;
+	height: 150px;
+	border-radius: 8px;
+}
+.evaluate_wrap{
+	border-bottom: 1px solid #ccc;
+	width: 90%;
+	margin: 0 auto;
+	line-height: 50px;
+	font-size: 24px;
+	color: #333;
+}
+/*详情开始*/
+.name{
+	overflow: hidden;
+	float: left;
+	margin: 20px 0 0 40px;
+}
+.name div{
+	float: left;
+	line-height: 25px;
+	font-size: 30px;
+
+}
+.name div span{
+	font-size: 20px;
+	display: block;
+}
+.name p{
+	font-size: 24px;
+	margin: 10px 0;
+}
+.name_yd ul{
+	width: 90%;
+	padding: 10px 0;
+	margin: 0 auto;
+	overflow: hidden;
+}
+.name_yd li{
+	font-size: 24px;
+	line-height:35px;
+	float: left;
+}
+.null{
+	width: 100%;
+	height: 20px;
+	background: #f4f4f4;
+}
+.course ul{
+	width: 90%;
+	margin: 0 auto;
+}
+.course ul li{
+	font-size: 26px;
+	overflow: hidden;
+	border-bottom: 1px solid #ccc;
+	padding: 10px 0;
+
+}
+
+.course ul li p{
+	width: 76%;
+	float: left;
+}
+.course ul li p span{
+	font-size: 20px;
+	color: #666;
+}
+.course .right_b{
+	float: right;
+	width: 20%;
+	text-align: center;
+}
+.course .right_b .pay{
+	border-bottom: 0;
+	color: #ffae00;
+	font-size: 24px;
+}
+.course .right_b li{
+
+	padding: 0 0;
+}
+.course .button{
+	border:1px solid #ffae00;
+	width: 70px;
+	line-height: 42px;
+	font-size: 22px;
+	color: #ffae00;
+	margin: 10px auto 0;
+}
+.course {
+	padding-bottom: 20px;
+}
+.course a{
+	color: #ffae00;
+}
+.pic_show{
+	width: 90%;
+	margin: 0 auto;
+	font-size: 22px;
+	padding-bottom: 20px;
+}
+.pic_show img{
+	width: 100%;
+	margin-top: 18px;
+}
+@media screen and (min-width: 1024px) {
+	body,html{
+		font-size: 60px;
+	}
+	.head {
+		font-size: .32rem;
+		line-height: .80rem;
+	}
+	.head .return{
+		padding-left: .20rem;
+	}
+	.head .return a{
+		width: .20rem;
+		line-height: .80rem;
+	}
+
+	.head .coll{
+		padding-right: .20rem;
+	}
+	.head .coll img{
+		width: .28rem;
+	}
+	.head img{
+		width: .20rem;
+		margin-top: .21rem;
+	}
+	.coll .coll_collect{
+		margin-top: .13rem;
+	}
+	.collect{
+		width: .28rem;
+		height: .78rem;
+		background: url(../images/collect01.png) 0 center no-repeat;
+		background-size: 64%;
+		line-height: .51rem;
+	}
+	.collect01{
+		background: url(../images/collect.png) 0 center no-repeat;
+		background-size: 64%;
+	}
+	/*图片开始*/
+
+	.pic ul{
+		margin: .20rem auto;
+		padding-left: .16rem;
+	}
+	.pic li img{
+		width: 1.50rem;
+		height: 1.50rem;
+		border-radius: 0.08rem;
+	}
+	.evaluate_wrap{
+		line-height: .50rem;
+		font-size: .24rem;
+		width: 93%;
+	}
+	/*详情开始*/
+	.name{
+		margin: .20rem 0 0 .40rem;
+	}
+	.name div{
+		line-height: .3rem;
+		font-size: .30rem;
+	}
+	.name div span{
+		font-size: .20rem;
+	}
+	.name p{
+		font-size: .24rem;
+		margin: .16rem 0;
+	}
+	.name_yd ul{
+		padding: .10rem 0;
+		width: 93%;
+	}
+	.name_yd li{
+		font-size: .24rem;
+		line-height:.5rem;
+	}
+	.null{
+		height: .20rem;
+	}
+	.course ul li{
+		font-size: .26rem;
+		padding: .10rem 0;
+	}
+	.course ul li p span{
+		font-size: .20rem;
+	}
+	.course .right_b .pay{
+		font-size: .24rem;
+	}
+	.course .button{
+		width: .70rem;
+		line-height: .42rem;
+		font-size: .22rem;
+		margin: .10rem auto 0;
+	}
+	.course {
+		padding-bottom: .20rem;
+	}
+	.pic_show{
+		font-size: .22rem;
+		padding-bottom: .20rem;
+		width: 93%;
+	}
+	.pic_show img{
+		margin-top: .18rem;
+	}
+	.course ul{
+		width: 93%;
+	}
+}

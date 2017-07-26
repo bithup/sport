@@ -1,0 +1,200 @@
+body{
+	font-family: "微软雅黑";
+	font-size: 14px;
+}
+.content{
+	background: #fff;
+	font-family: "微软雅黑";
+
+}
+.head{
+ width:100%;
+  overflow: hidden;
+  background: #fff;
+}
+
+
+.head p{
+	font-size: 20px;
+	color: #333;
+	padding-left: 20px;
+	float: left;
+	line-height: 60px;
+}
+.head .center {
+width:60%;
+background: #f2f2f2;
+border-radius: 50px;
+margin: 0 auto;
+height: 34px;
+float: left;
+margin-top: 13px;
+margin-left: 22px;
+
+}
+.head .center span{
+	display: block;
+	width: 80%;
+}
+.head .center span img{
+	width: 20px;
+    margin: 8px 0 0 15px;
+}
+.head .per{
+	float: right;
+	padding-right: 20px;
+}
+.head .per i{
+	display: block;
+	margin: 16px 0;
+}
+/*轮播开始*/
+.slider{display:none}/*用于获取更加体验*/
+.slider .focus{
+	height: 0;
+	background:rgba(0,0,0,0)!important;
+}
+.focus>div{ 
+	top: 50%; 
+	left: 50%; 
+	transform: translate(-50%,-50%); 
+	margin-top: 0!important; right: 0!important; 
+}
+.focus span{
+	width:10px;
+	height:10px;
+	margin-right:10px;
+	border-radius:50%;
+	background:#666;
+	font-size:0
+}
+.focus span.current{
+	background:#fff
+}
+/*icon开始*/
+
+.icon ul{ 
+	 overflow: hidden;
+	margin: 10px auto; 
+	 
+}
+.icon ul li{ 
+	width: 25%; 
+	float: left; 
+	text-align: center; 
+	margin: 5px 0; }
+.icon ul li a{ 
+	display: inline-block; 
+	width: 50px; color: 
+	#4d4d4d; 
+}
+.icon ul li i{ 
+	display: block; 
+	width: 50px; 
+	height: 50px;
+}
+.icon ul li i img{ 
+	display: block; 
+	max-width: 100%; 
+}
+/*热门开始*/
+.hot{
+	width: 100%;
+	border:1px solid #ccc;
+}
+.hot ul{
+	overflow: hidden;
+
+}
+.hot li{
+	float: left;
+	line-height: 60px;
+	width: 33%;
+	text-align: center;
+	font-size: 18px;
+
+}
+.hot li a{
+	display:block;
+	color: #333;
+}
+.hot .cur a{
+	color: #ff8306;
+	border-bottom: 2px solid #ff8306;
+}
+.pic ul{
+	width: 90%;
+	margin:0 auto;
+}
+.pic ul li{
+	position: relative;
+	border-bottom: 1px solid #ccc;
+}
+.pic span{
+	position: absolute;
+    right: 18px;
+    bottom: 14px;
+    width: 60px;
+    line-height: 24px;
+    border: 2px solid #ff8306;
+    text-align: center;
+    border-radius: 5px;
+	
+}
+.pic li img{
+	width: 100%;
+}
+.con_db{ 
+	width: 100%; 
+	margin-bottom: 10px; 
+}
+.con_db ul{ 
+	width: 90%; 
+	margin: 0 auto;
+	padding: 16px 0 6px 0; 
+}
+.con_db ul li{ 
+	width: 25%; 
+	float: left; 
+	text-align: center; 
+}
+.con_db ul li a{ 
+	color: #666666; 
+	font-size: 12px; 
+}
+.con_db ul li i{ 
+	display: inline-block; 
+	width: 50px; 
+	height: 50px; 
+}
+.con_db ul li i img{ 
+	display: block; 
+	max-width: 80%; 
+}
+
+.tb{
+	width:100%;
+	background: #f5f5f5;
+}
+.tb ul{
+	width:100%;
+	margin:0 auto;
+	padding: 10px 0;
+	overflow: hidden;
+}
+.tb li{
+	float: left;
+	width: 20%;
+	text-align: center;
+	line-height: 20px;
+}
+.tb ul li a{
+	color: #333;
+    font-size: 14px;
+}
+.tb .cur a{
+	color: #ffac05;
+}
+.tb ul li img{
+	width: 30px;
+}

@@ -1,0 +1,397 @@
+body{
+	font-family: "微软雅黑";
+	color: #333;
+	max-width: 750px !important;
+}
+.head {
+	font-size: 36px;
+	line-height: 85px;
+	background: #fff;
+	text-align: center;
+	overflow: hidden;
+	color: #333;
+	border-bottom: 1px solid #ccc;
+	position: relative;
+}
+.head .return{
+	position: absolute;
+	top: 0px;
+	left: 10px;
+}
+.head .return a{
+	display: inline-block;
+}
+.head .return a img{
+	margin-top: 10px;
+}
+.head .edit{
+	font-size: 28px;
+	position: absolute;
+	top: 0;
+	right: 24px;
+}
+.content ul{
+	background: #fff;
+	margin-bottom: 20px;
+}
+.content ul li.con_top, li.con_bottom{
+	width: 94%;
+	margin: 0 auto;
+	border-bottom: 1px solid #ccc;
+	overflow: hidden;
+	font-size: 28px;
+	color: #333;
+	position: relative;
+	padding-left: 10px;
+}
+.content ul li.con_top{
+	line-height: 88px;
+}
+.content ul li.con_bottom{
+	padding: 23px 0;
+}
+.content ul li .trainlogo{
+	width: 64px;
+	height: 64px;
+	float: right;
+	margin-top: 12px;
+	border-radius: 50%;
+}
+.content ul li a{
+	display: block;
+	background: url(../images/my_zk.png) right center no-repeat;
+	padding-right: 32px;
+	color: #999;
+	overflow: hidden;
+	position: relative;
+}
+.trainlogo_sel{
+	width: 100%;
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 0;
+	opacity: 0;
+	height: 88px;
+}
+.content ul li input[type="text"]{
+	color: #333;
+	font-size: 28px;
+	border: none;
+	outline: none;
+	display: inline-block;
+	width: 70%;
+	font-family: "微软雅黑";
+}
+.content ul li input.lately{
+	width: 20%;
+}
+.content ul li span{
+	color: #333;
+	font-size: 28px;
+	display: inline-block;
+}
+/* placeholder样式 */
+::-webkit-input-placeholder { /* WebKit browsers */  
+    color: #ccc;
+}  
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */  
+   color: #ccc;
+   opacity: 1;
+}  
+::-moz-placeholder { /* Mozilla Firefox 19+ */  
+   color: #ccc;
+   opacity: 1;
+}  
+:-ms-input-placeholder { /* Internet Explorer 10+ */  
+   color: #ccc;
+}
+.content ul li i{
+	display: inline-block;
+	width: 25%;
+	float: left;
+	color: #333;
+}
+.sexsel_wrap{
+	width: 100%;
+	background: rgba(51,51,51,0.5);
+	position: absolute;
+	top: 0;
+	left: 0;
+	display: none;
+}
+.sex_sel{
+	width: 250px;
+	font-size: 18px;
+	position: absolute;
+	left: 50%;
+	margin-left: -125px;
+	background: #fff;
+	padding: 20px;
+}
+.sex_sel div{
+	padding: 10px 0;
+}
+.man_wrap{
+	border-bottom: 1px solid #ccc;
+}
+.man_wrap input{
+	margin: 10px 0;
+}
+.sex_sel input{
+	margin-left: 141px;
+}
+.textwrap{
+	float: left;
+	min-height: 137px;
+	font-family: '微软雅黑';
+	font-size: 1em;
+	outline: none;
+	color: #333;
+	width: 90%;
+	border: none;
+	resize: none;
+}
+.imgwrap{
+	position: relative;
+	display: inline-block;
+}
+.imgwrap img, .con_bottom img{
+	width: 160px;
+	height: 120px;
+	border-radius: 8px;
+	overflow: hidden;
+	margin-right: 16px;
+}
+.idcard_front{
+	width: 160px;
+	height: 120px;
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 0;
+	opacity: 0;
+}
+.con_bottom p{
+	margin-bottom: 30px;
+	color: #333;
+}
+.con_top b{
+	color: #333;
+}
+/* 主场馆样式 */
+.content ul li .sitelogo{
+	width: 80px;
+	height: 60px;
+	float: right;
+	margin-top: 15px;
+	border-radius: 8px;
+}
+.content ul li i.site_menu{
+	display: inline-block;
+	width: 20%;
+	float: left;
+	color: #333;
+}
+.delmoney_wrap{
+	width: 100%;
+	background: rgba(51,51,51,0.5);
+	position: absolute;
+	top: 0;
+	left: 0;
+	display: none;
+}
+.delmoney_sel{
+	width: 250px;
+	font-size: 18px;
+	position: absolute;
+	left: 50%;
+	margin-left: -125px;
+	background: #fff;
+	padding: 20px;
+}
+.delmoney_sel div{
+	padding: 10px 0;
+}
+.delmoney_sel input{
+	margin-left: 141px;
+}
+.con_top input.lately{
+	display: inline-block;
+	width: 124px;
+	background: url(../images/input.png) 0 bottom no-repeat;
+	line-height: 68px;
+	margin-left: 49px;
+	text-align: center;
+}
+.plusminus{
+	display: inline-block;
+	line-height: 88px;
+	position: relative;
+}
+.minus{
+	position: absolute;
+	top: -34px;
+}
+.plus{
+	position: absolute;
+	top: -34px;
+}
+.content ul li .spe_ipt{
+	line-height: 88px;
+	position: absolute;
+	left:202px;
+	top:0;
+	background: rgba(255,255,255,0);
+	width: 75%;
+}
+.sex_btn{
+	position: absolute;
+	top:0;
+	left:0;
+	width: 100%;
+	line-height:52px;
+}
+.ipt_w{
+	width: 70%;
+}
+/* 分场馆样式 */
+
+@media screen and (min-width: 1024px) {
+	body,html{
+		max-width: 640px !important;
+		font-size: 60px;
+	}
+	.head {
+		font-size: .36rem;
+		line-height: .85rem;
+	}
+	.head .return{
+		left: .10rem;
+	}
+	.head .return a img{
+		margin-top: .10rem;
+	}
+	.head .edit{
+		font-size: .28rem;
+		right: .24rem;
+	}
+	.content ul{
+		margin-bottom: .20rem;
+	}
+	.content ul li.con_top, li.con_bottom{
+		font-size: .28rem;
+		padding-left: 0.1rem;
+	}
+	.content ul li.con_top{
+		line-height: .88rem;
+	}
+	.content ul li.con_bottom{
+		padding: .23rem 0 .23rem 0.1rem;
+	}
+	.content ul li .trainlogo{
+		width: .64rem;
+		height: .64rem;
+		margin-top: .12rem;
+	}
+	.content ul li a{
+		background: url(../images/my_zk.png) right center no-repeat;
+		padding-right: .32rem;
+	}
+	.trainlogo_sel{
+		height: .88rem;
+	}
+	.content ul li input[type="text"]{
+		font-size: .28rem;
+	}
+	.content ul li span{
+		font-size: .28rem;
+	}
+	.content ul li i{
+		width: 1.62rem;
+	}
+	.sex_sel{
+		width: 2.50rem;
+		font-size: .18rem;
+		margin-left: -1.25rem;
+		padding: .20rem;
+	}
+	.sex_sel div{
+		padding: .10rem 0;
+	}
+	.man_wrap input{
+		margin: .10rem 0;
+	}
+	.sex_sel input{
+		margin-left: 1.41rem;
+	}
+	.textwrap{
+		min-height: 1.37rem;
+		font-size: .28rem;
+	}
+	.imgwrap img, .con_bottom img{
+		width: 1.60rem;
+		height: 1.20rem;
+		border-radius: 0.08rem;
+		margin-right: .16rem;
+	}
+	.idcard_front{
+		width: 1.60rem;
+		height: 1.20rem;
+	}
+	.con_bottom p{
+		margin-bottom: .30rem;
+	}
+	/* 主场馆样式 */
+	.content ul li .sitelogo{
+		width: .80rem;
+		height: .60rem;
+		margin-top: .15rem;
+		border-radius: 0.08rem;
+	}
+	.content ul li i.site_menu{
+		width: 2rem;
+	}
+	.delmoney_sel{
+		width: 2.50rem;
+		font-size: .18rem;
+		margin-left: -1.25rem;
+		padding: .20rem;
+	}
+	.delmoney_sel div{
+		padding: .10rem 0;
+	}
+	.delmoney_sel input{
+		margin-left: 1.41rem;
+	}
+	.con_top input.lately{
+		width: 1.24rem;
+		background: url(../images/input.png) 0 bottom no-repeat;
+		line-height: .68rem;
+		margin-left: .49rem;
+	}
+	.plusminus{
+		line-height: .88rem;
+	}
+	.minus{
+		top: -0.34rem;
+		display: inline-block;
+		width: 0.5rem;
+	}
+	.plus{
+		top: -0.34rem;
+		display: inline-block;
+		width: 0.5rem;
+	}
+	.content ul li .spe_ipt{
+		width: 83%;
+		left: 120px;
+		line-height: 52px;
+	}
+	.ipt_w{
+		width: 80%;
+		text-overflow: ellipsis;
+		overflow: hidden;
+		white-space: nowrap;
+	}
+}

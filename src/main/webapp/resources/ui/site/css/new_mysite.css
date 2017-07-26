@@ -1,0 +1,130 @@
+body{
+	font-family: "微软雅黑";
+	color: #333;
+	max-width: 750px !important;
+}
+.head {
+	font-size: 36px;
+	line-height: 85px;
+	background: #fff;
+	text-align: center;
+	overflow: hidden;
+	color: #333;
+	border-bottom: 1px solid #ccc;
+	position: relative;
+}
+.head .return{
+	position: absolute;
+	top: 0px;
+	left: 10px;
+}
+.head .return a{
+	display: inline-block;
+}
+.head .return a img{
+	margin-top: 10px;
+}
+.head .edit{
+	font-size: 28px;
+	position: absolute;
+	top: 0;
+	right: 10px;
+}
+.head .plus{
+	font-size: 28px;
+	position: absolute;
+	top: 0;
+	right: 79px;
+}
+.content ul li{
+	margin-bottom: 20px;
+	background: #fff;
+	border-bottom: 1px solid #dadada;
+	position: relative;
+}
+.content ul li a{
+	padding: 0 20px;
+	display: block;
+	height: 188px;
+	overflow: hidden;
+}
+.content ul li img.con_left{
+	width: 200px;
+	height: 150px;
+	float: left;
+	border-radius: 8px;
+	margin-top: 19px;
+}
+.content ul li span.con_right{
+	float: left;
+	margin: 29px 0 0 13px;
+}
+.con_right i{
+	display: block;
+	font-size: 28px;
+	line-height: 28px;
+	margin-bottom: 24px;
+}
+.content ul li b.delete{
+	display: inline-block;
+	width: 136px;
+	text-align: center;
+	font-size: 36px;
+	background: #fd4848;
+	color: #fff;
+	position: absolute;
+	right: 0;
+	top: 0;
+	line-height: 188px;
+	display: none;
+}
+@media screen and (min-width: 1024px) {
+	body,html{
+		max-width: 640px !important;
+		font-size: 60px;
+	}
+	.head {
+		font-size: .36rem;
+		line-height: .85rem;
+	}
+	.head .return{
+		left: .10rem;
+	}
+	.head .return a img{
+		margin-top: .10rem;
+	}
+	.head .edit{
+		font-size: .28rem;
+		right: .10rem;
+	}
+	.head .plus{
+		font-size: .28rem;
+		right: .79rem;
+	}
+	.content ul li{
+		margin-bottom: .20rem;
+	}
+	.content ul li a{
+		padding: 0 .20rem;
+		height: 1.88rem;
+	}
+	.content ul li img.con_left{
+		width: 2.00rem;
+		height: 1.50rem;
+		border-radius: 0.08rem;
+		margin-top: .19rem;
+	}
+	.content ul li span.con_right{
+		margin: .29rem 0 0 .13rem;
+	}
+	.con_right i{
+		font-size: .28rem;
+		line-height: .28rem;
+		margin-bottom: .24rem;
+	}
+	.content ul li b.delete{
+		width: 1.36rem;
+		font-size: .36rem;
+		line-height: 1.88rem;
+	}
+}

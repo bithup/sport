@@ -1,0 +1,259 @@
+body{
+	background: #fff!important;
+}
+.content{
+	font-family: "微软雅黑";
+}
+.head{
+	overflow: hidden;
+    height: 80px;
+    border-bottom: 1px solid #ccc;
+}
+.head h3{
+	float: left;
+    padding-left: 20px;
+}
+.head h3 img{
+	padding: 19px 0;
+	width: 20px;
+}
+.head ul{
+	float: left;
+	width: 69%;
+	margin-left: 11%;
+}
+.head ul li{
+	float: left;
+    width: 32%;
+    text-align: center;
+    border: 1px solid #e5e5e5;
+    line-height: 46px;
+    margin: 16px 0;
+
+}
+
+.head ul li a{
+	color: #333;
+	display: block;
+	background:#fff;
+	font-size: 26px;
+}
+.head ul .cur a{
+	background: #eee;
+}
+.head span{
+	font-size: 22px;
+	float: right;
+	line-height: 81px;
+	margin-right: 3%;
+	cursor: pointer;
+}
+/*详情开始*/
+.pic li {
+	overflow: hidden;
+	width: 100%;
+	margin:0 auto;
+	border-bottom: 1px solid #ccc;
+	padding: 20px 0;
+	position: relative;
+
+}
+.pic .wrap{
+	overflow: hidden;
+	width: 90%;
+	margin: 0 auto
+}
+.pic .wrap_edit{
+	width: 80%;
+	float: right;
+}
+.sel{
+	width: 29px;
+	height: 29px;
+	float: left;
+	margin: 42px 0 0 36px;
+	background: url(../images/nocol.png) 0 center no-repeat;
+	background-size: 100%;
+	display: none;
+}
+.no{
+	width: 100%;
+	height: 20px;
+	background: #f6f6f6;
+	display: none;
+}
+.allsel{
+	width: 29px;
+	height: 29px;
+	float: left;
+	margin: 31px 39px 0 44px;
+	background: url(../images/nocol.png) 0 center no-repeat;
+	background-size: 100%;
+}
+.all_sel{
+	width: 100%;
+	border-bottom: 1px solid #ccc;
+	line-height: 89px;
+	font-size: 24px;
+	overflow: hidden;
+	display: none;
+}
+.docol{
+	background: url(../images/docol.png) 0 center no-repeat;
+	background-size: 100%;
+}
+.all_sel i{
+	width: 100px;
+	height: 40px;
+	background: #ffb400;
+	line-height: 40px;
+	text-align: center;
+	float: right;
+	color: #fff;
+	margin: 24px 20px 0 0;
+}
+.pic li h3{
+	float: left;	
+	width: 33%;
+
+}
+.pic li h3 img{
+	width: 150px;
+	height: 150px;
+}
+.font{
+	width: 60%;
+    float: left;
+}
+.font p{
+	padding-top: 6px;
+	font-size: 22px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+.font .b{
+	font-size: 26px;
+	color: #333;
+}
+
+.font .color a{
+	color: #ffa104;
+    border: 1px solid;
+    line-height: 36px;
+    text-align: center;
+    display: inline-block;
+	padding: 0 10px;
+}
+.font .color i{
+	color: #ffa104;
+	border: 1px solid;
+	line-height: 36px;
+	text-align: center;
+	display: inline-block;
+	padding: 0 10px;
+}
+.font .color a.color_a{
+	position: absolute;
+	right: 30px;
+}
+.sex_bar{
+	margin-left: 72px;
+}
+@media screen and (min-width: 1024px) {
+	body,html{
+		font-size: 60px;
+	}
+	.head{
+		height: .80rem;
+	}
+	.head h3{
+		padding-left: .20rem;
+	}
+	.head h3 a{
+		overflow: hidden;
+	}
+	.head h3 img{
+		padding: .19rem 0;
+		width: .20rem;
+		float: left;
+	}
+	.head ul li{
+		line-height: .46rem;
+		margin: .16rem 0;
+	}
+
+	.head ul li a{
+		font-size: .26rem;
+	}
+	.head span{
+		font-size: .22rem;
+		line-height: .81rem;
+	}
+	/*详情开始*/
+	.pic li {
+		padding: .20rem 0;
+	}
+	.sel{
+		width: .29rem;
+		height: .29rem;
+		margin: .42rem 0 0 .36rem;
+		background: url(../images/nocol.png) 0 center no-repeat;
+		background-size: 100%;
+	}
+	.no{
+		height: .20rem;
+	}
+	.allsel{
+		width: .29rem;
+		height: .29rem;
+		margin: .31rem .39rem 0 .44rem;
+		background: url(../images/nocol.png) 0 center no-repeat;
+		background-size: 100%;
+	}
+	.all_sel{
+		line-height: .89rem;
+		font-size: .24rem;
+	}
+	.docol{
+		background: url(../images/docol.png) 0 center no-repeat;
+		background-size: 100%;
+	}
+	.all_sel i{
+		width: 1.00rem;
+		height: .40rem;
+		line-height: .40rem;
+		margin: .24rem .20rem 0 0;
+	}
+	.pic li h3{
+		width: 20%;
+		overflow: hidden;
+	}
+	.pic li h3 img{
+		width: 1.50rem;
+		height: 1.50rem;
+		float: left;
+	}
+	.font p{
+		padding-top: 0.06rem;
+		font-size: .22rem;
+	}
+	.font .b{
+		font-size: .26rem;
+	}
+
+	.font .color a{
+		line-height: .36rem;
+		padding: 0 .10rem;
+	}
+	.font .color i{
+		line-height: .36rem;
+		padding: 0 .10rem;
+	}
+	.font .color a.color_a{
+		right: .30rem;
+	}
+	.sex_bar{
+		margin-left: .72rem;
+	}
+}

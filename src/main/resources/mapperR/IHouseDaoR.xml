@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xgh.sportsite.dao.read.IHouseDaoR">
+
+    <!--实体映射-->
+    <resultMap id="house" type="com.xgh.sportsite.entity.House">
+        <!--主键id-->
+        <id property="id" column="id" javaType="Long"/>
+        <!--收藏人id-->
+        <result property="memberId" column="member_id" javaType="long" jdbcType="BIGINT"/>
+        <!--类型（0：场馆  1：教练  2:活动）-->
+        <result property="type" column="type" javaType="int" jdbcType="INTEGER"/>
+        <!--场馆id、教练id、活动id-->
+        <result property="dataId" column="data_id" javaType="long" jdbcType="BIGINT"/>
+        <!--创建时间-->
+        <result property="createDate" column="create_date" javaType="Date" jdbcType="TIMESTAMP"/>
+        <!--修改时间-->
+        <result property="updateDate" column="update_date" javaType="Date" jdbcType="TIMESTAMP"/>
+        <!--状态（0：未收藏  1：收藏）-->
+        <result property="status" column="status" javaType="int" jdbcType="INTEGER"/>
+        <!--备用字段1-->
+        <result property="data1" column="data_1" javaType="String" jdbcType="VARCHAR"/>
+        <!--备用字段2-->
+        <result property="data2" column="data_2" javaType="long" jdbcType="BIGINT"/>
+        <!--备用字段3-->
+        <result property="data3" column="data_3" javaType="int" jdbcType="INTEGER"/>
+        <!--备用字段4-->
+        <result property="data4" column="data_4" javaType="Double" jdbcType="DOUBLE"/>
+    </resultMap>
+
+
+    <sql id="Base_Column_List">
+        id,	member_id,	type,	data_id,	create_date,	update_date,	status,	data_1,	data_2,	data_3,	data_4
+    </sql>
+
+
+    <select id="get" resultMap="house" parameterType="java.lang.Long">
+        SELECT
+        *
+        FROM tb_house
+        WHERE id = #{id}
+    </select>
+
+
+    <select id="getHouseList" resultType="hashmap" parameterType="hashmap">
+        SELECT
+        *
+        FROM tb_house
+        WHERE
+        member_id = #{memberId}
+        AND
+        TYPE =#{type}
+        and
+        status=1
+        limit ${(page-1)*pageSize},${pageSize}
+    </select>
+
+    <select id="getVenueHouseList" resultType="hashmap" parameterType="hashmap">
+        SELECT
+        h.id,
+        h.create_date AS createDate,
+        cv.id AS venueId,
+        cv.picture_url AS pictureUrl,
+        cv.pic_real_path AS picRealPath,
+        cv.price,
+        cv.sales_price AS salesPrice,
+        cv.sport_id AS sportId,
+        cv.venue_name AS venueName,
+        z.`name` AS zoneName,
+        v.is_refund AS isRefund
+        FROM
+        tb_house h
+        LEFT JOIN tb_child_venue cv ON h.data_id = cv.id
+        LEFT JOIN tb_venue v ON cv.parent_id = v.id
+        LEFT JOIN tb_zone z ON v.zone_id = z.id
+        WHERE
+        h.member_id = #{memberId}
+        AND h.`status`>0
+        AND h.type = 0
+        AND cv.`status` >= 0
+        AND v.`status` >= 0
+        AND v.is_check = 1
+        ORDER BY
+        h.create_date DESC
+        limit ${(page-1)*pageSize},${pageSize}
+    </select>
+
+    <select id="getCoachHouseList" resultType="hashmap" parameterType="hashmap">
+        SELECT
+        h.id,
+        h.create_date AS createDate,
+        c.id AS coachId,
+        c.`name`,
+        c.sex,
+        c.birthday,
+        YEAR (
+        from_days(datediff(now(), c.birthday))
+        ) AS age,
+        c.business_time AS businessTime,
+        c.height,
+        c.intro,
+        c.is_true AS isTrue,
+        c.teaching_career AS teachingCareer,
+        c.tel_phone AS telPhone,
+        c.weight,
+        c.is_recommend AS isRecommend,
+        c.head_path AS pictureUrl,
+        c.head_real_path AS picRealPath,
+        k.`name` AS kindsName,
+        z.`name` AS zoneName
+        FROM
+        tb_house h
+        LEFT JOIN tb_coach c ON h.data_id = c.id
+        LEFT JOIN tb_kinds k ON k.id = c.sport_id
+        LEFT JOIN tb_zone z ON z.id = c.data_6
+        WHERE
+        h.member_id = #{memberId}
+        AND h.`status`>0
+        AND h.type = 1
+        AND c.`status` >= 0
+        AND c.is_check = 1
+        ORDER BY
+        h.create_date DESC
+        limit ${(page-1)*pageSize},${pageSize}
+    </select>
+
+    <select id="getActivityHouseList" resultType="hashmap" parameterType="hashmap">
+        SELECT
+        h.id,
+        h.create_date AS createDate,
+        a.id AS activityId,
+        a.activity_name AS activityName,
+        a.activity_price AS activityPrice,
+        a.activity_address AS activityAddress,
+        a.activity_path AS activityPath,
+        a.activity_real_path AS activityRealPath,
+        a.activity_type AS activityType,
+        a.is_free AS isFree,
+        a.start_date AS startDate,
+        a.end_date AS endDate,
+        a.sport_id AS sportId,
+        z.`name` AS zoneName,
+        k.`name` AS sportName
+        FROM
+        tb_house h
+        LEFT JOIN tb_activity a ON h.data_id = a.id
+        LEFT JOIN tb_zone z ON a.data_1 = z.id
+        LEFT JOIN tb_kinds k ON a.sport_id = k.id
+        WHERE
+        h.member_id = #{memberId}
+        AND h.`status`>0
+        AND h.type = 2
+        AND a. STATUS = 1
+        AND a.is_check = 1
+        ORDER BY
+        h.create_date DESC
+        limit ${(page-1)*pageSize},${pageSize}
+    </select>
+
+    <select id="getHouseListObject" resultType="hashmap" parameterType="hashmap">
+        SELECT
+        *
+        FROM tb_house
+        WHERE
+        member_id = #{memberId}
+        AND
+        TYPE =#{type}
+        and
+        status=1
+        limit ${(page-1)*pageSize},${pageSize}
+    </select>
+    
+    
+    <select id="checkHouseExist" parameterType="hashmap" resultMap="house">
+       SELECT
+            *
+        FROM
+            tb_house
+        WHERE
+            member_id = #{memberId}
+        AND type = #{type}
+        AND data_id = #{dataId}
+    </select>
+
+
+
+</mapper>

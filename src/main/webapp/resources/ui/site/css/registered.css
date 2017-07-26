@@ -1,0 +1,213 @@
+@charset "utf-8";
+/* webrx CSS Document */
+html {
+    font-size: 10px;
+}
+
+@media ( min-width: 350px) {
+    html {
+        font-size: 12px;
+    }
+}
+
+body {
+    background-color: #f5f5f5;
+    font-family: arial, "微软雅黑", sans-self;
+    font-color: #333333;
+    margin-top:0px;
+    margin-bottom:0px;
+    margin-left:0px;
+    margin-right:0px;
+}
+
+a:hover, a:active {
+    text-decoration: none;
+}
+.log_sf{ margin-top: 40px; }
+.log_sf ul li{ float: left; width: 30%; border: #c6c6c6 solid 1px;}
+
+.log_sf ul li:nth-child(1),.log_sf ul li:nth-child(2){ border-right: none; }
+.log_sf ul li a{ display: inline-block; color: #fac240; font-size: 1.6rem; width: 100%; height: 40px; text-align: center; line-height: 40px; }
+.log_sf ul li a.active{display: inline-block; width: 100%; height: 40px; color: #f8f8f8; background: #de214c; text-decoration: none; }
+
+
+.content {
+    overflow: hidden;
+    min-width: 320px;
+    min-height: 480px;
+    max-width: 540px;
+    position: relative;
+}
+
+.log_tit {
+    width: 100%;
+    height: 45px;
+    border-bottom: #c6c6c6 solid 1px;
+    background:#fff;
+    position: relative;
+    text-align: center;
+}
+.log_tit i{
+    margin-left: 10px;
+}
+.log_tit01 {
+    width: 10%;
+    float: left;
+    z-index: -1;
+}
+
+.log_tit a {
+    display: inline-block;
+    width: 25px;
+    height: 45px;
+    background: url(../images/ret.png) no-repeat 0 center;
+    background-size: 58%;
+    position: absolute;
+    top: 0;
+    left: 10px;
+}
+
+.log_tit02 {
+    float: left;
+}
+
+.log_tit strong {
+    display: inline-block;
+    line-height: 45px;
+    color: #fac240;
+    font-size: 1.6rem;
+    font-weight: normal;
+}
+
+.log_sf {
+    margin: 40px auto 0;
+    width: 80%;
+}
+
+.log_sf ul{
+    overflow: hidden;
+}
+.log_sf ul li {
+    float: left;
+    width: 32.8%;
+    border: #fac240 solid 1px;
+    background: #fff;
+}
+
+.log_sf ul li:nth-child(1), .log_sf ul li:nth-child(2) {
+    border-right: none;
+}
+
+.log_sf ul li a {
+    display: inline-block;
+    color: #fac240;
+    font-size: 16px;
+    width: 100%;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+}
+
+.log_sf ul li.active {
+    background: #fac240;
+}
+.log_sf ul li.active a{
+    color: #fff;
+}
+
+.reg_sj input {
+    width: 79%;
+    height: 35px;
+    border: #c6c6c6 solid 1px;
+    font-size: 1.2rem;
+    color: #333;
+    padding-left: 5px;
+    border-radius: 4px;
+    outline: none;
+    font-family: '微软雅黑';
+    display: block;
+    margin: 20px auto 0;
+}
+
+.reg_yz {
+    width: 80%;
+    margin: 10px auto 0;
+    overflow: hidden;
+}
+
+.reg_yz01 {
+    width: 18%;
+    float: left;
+    font-size: 14px;
+    color: #333333;
+    margin: 20px 0 0 9%;
+}
+
+.reg_yz02 {
+    width: 67%;
+    float: left;
+    margin-top: 12px;
+}
+
+.reg_yz02 input {
+    width: 97%;
+    height: 35px;
+    border: #c6c6c6 solid 1px;
+    outline: none;
+    font-family: '微软雅黑';
+    padding-left: 5px;
+    border-radius: 4px;
+}
+
+.reg_yz03{
+    overflow: hidden;
+    float: right;
+    width: 33%;
+}
+.reg_yz03 a {
+    float: left;
+    width: 94%;
+    height: 35px;
+    border: #fac240 solid 1px;
+    margin-top: 12px;
+    margin-left: 4%;
+    font-size: 14px;
+    color: #fac240;
+    text-align: center;
+    line-height: 35px;
+    background: #fff;
+    border-radius: 4px;
+}
+
+.reg_mm input, .reg_qr input {
+    width: 79%;
+    height: 35px;
+    font-size: 1.2rem;
+    color: #333;
+    padding-left: 5px;
+    border: #c6c6c6 solid 1px;
+    border-radius: 4px;
+    outline: none;
+    font-family: '微软雅黑';
+    display: block;
+    margin: 20px auto 0;
+}
+
+.reg_an a {
+    display: inline-block;
+    width: 79%;
+    height: 40px;
+    line-height: 40px;
+    margin-left: 10%;
+    background: #fac240;
+    border-radius: 5px;
+    margin-top: 20px;
+    font-size: 1.5rem;
+    color: #ffffff;
+    text-align: center;
+}
+
+.reg_an a i {
+    font-style: normal;
+    padding-right: 10%;
+}

@@ -1,0 +1,111 @@
+body{
+	background: #fff !important;
+}
+.content{
+	font-family: "微软雅黑";
+}
+.log_tit{ width: 100%; height: 45px; border-bottom: #c6c6c6 solid 1px;background:#fff;}
+.log_tit a{ display: inline-block; width: 12px; height: 25px; background: url(../images/ret.png) no-repeat 0 0; background-size:cover; float: left; margin: 10px 0 0 10px;}
+.log_tit strong{ display: inline-block;; margin-left:42%; line-height: 45px; color: #333; font-size: 18px; font-weight: normal; }
+.my_act{
+	width: 100%;
+	background: #fff;
+}
+.my_act ul{
+	width: 100%;
+	font-size: 16px;
+}
+.my_act ul li{
+	width: 100%;
+	border-bottom: 1px solid #ccc;
+	padding: 10px 0;
+}
+.act_basic li:nth-child(1){
+	text-align: center;
+	line-height: 58px;
+	padding: 0;
+}
+.act_basic li img{
+	margin-top: 25px;
+}
+.act_basic li div{
+	width: 90%;
+	margin: 0 auto;
+	overflow: hidden;
+}
+.act_basic li div span{
+	float: right;
+}
+.act_other li div{
+	width: 90%;
+	margin: 0 auto;
+	overflow: hidden;
+}
+.act_other li div span{
+	float: right;
+}
+.no{
+	width: 100%;
+	height: 10px;
+	background: #f1f1f1;
+}
+.act_other .peo_count{
+	color: #ffac05;
+}
+.act_intro{
+	width: 100%;
+	font-size: 16px;
+	padding-top: 10px;
+}
+.act_wrap{
+	width: 90%;
+	margin: 0 auto;
+	overflow: hidden;
+}
+.act_wrap textarea{
+	display: block;
+	border-color: #ccc;
+	outline: none;
+	overflow: visible;
+	width: 96%;
+	height: 200px;
+	margin: 10px auto 0;
+	resize:none;
+	padding: 10px;
+	font-family: '微软雅黑';
+}
+.act_btn{
+	width: 95%;
+	overflow: hidden;
+	margin-top: 10px;
+	float: right;
+}
+.act_btn a{
+	float: right;
+	width: 62px;
+	font-size: 14px;
+	line-height: 29px;
+	font-family: '微软雅黑';
+	text-align: center;
+	background: #f5f5f5;
+}
+.act_btn a:nth-child(1){
+	background: #ffac05;
+	color: #fff;
+	margin-left: 14px;
+}
+.build_btn{
+	width: 95%;
+	margin: 0 auto;
+}
+.build_btn a{
+	display: block;
+	font-size: 24px;
+	line-height: 79px;
+	font-family: '微软雅黑';
+	text-align: center;
+	background: #ffac05;
+	margin-top: 54px;
+	color: #fff;
+	border-radius: 8px;
+}

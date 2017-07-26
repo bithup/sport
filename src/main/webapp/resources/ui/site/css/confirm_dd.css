@@ -1,0 +1,84 @@
+body{
+	background:#fff !important;
+}
+.content{
+	font-family: '微软雅黑';
+}
+.head{
+	line-height: 80px;
+	text-align: center;
+	font-size: 32px;
+	position: relative;
+	border-bottom: 1px solid #ccc;
+}
+.head .left{
+	display: inline-block;
+	position: absolute;
+	left: 20px;
+}
+.head .left a{
+	display: inline-block;
+}
+.con_wrap input{
+	display: block;
+	width: 95%;
+	margin: 0 auto;
+	border: none;
+	border-bottom: 1px solid #ffcb50;
+	line-height: 75px;
+	font-size: 28px;
+	font-family: '微软雅黑';
+
+}
+/* placeholder样式 */
+::-webkit-input-placeholder { /* WebKit browsers */  
+    color: #c7c6cc;
+}  
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */  
+   color: #c7c6cc;
+   opacity: 1;
+}  
+::-moz-placeholder { /* Mozilla Firefox 19+ */  
+   color: #c7c6cc;
+   opacity: 1;
+}  
+:-ms-input-placeholder { /* Internet Explorer 10+ */  
+   color: #c7c6cc;
+}
+.submit_btn input{
+	display: block;
+	width: 84%;
+	margin: 156px auto 0;
+	background:#ffcb50;
+	text-align: center;
+	color: #fff;
+	font-size: 26px;
+	border: none;
+	outline: none;
+	line-height: 80px;
+	font-family: '微软雅黑';
+}
+@media screen and (min-width: 1024px) {
+	body,html{
+		font-size: 60px;
+	}
+	.head{
+		line-height: .80rem;
+		font-size: .32rem;
+	}
+	.head .left{
+		left: .20rem;
+	}
+	.con_wrap input{
+		line-height: .75rem;
+		font-size: .28rem;
+	}
+	.submit_btn input{
+		margin: 1.56rem auto 0;
+		font-size: .26rem;
+		line-height: .80rem;
+	}
+	.head .left a img{
+		margin-top: 10px;
+	}
+}

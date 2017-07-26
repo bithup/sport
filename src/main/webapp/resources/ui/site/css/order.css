@@ -1,0 +1,128 @@
+body{
+	background: #fff!important;
+}
+
+.content{
+	font-family:"微软雅黑";
+}
+.head{
+	width:100%;
+	line-height: 80px;
+	border-bottom: 1px solid #ccc;
+	text-align: center;
+	overflow: hidden;
+	font-size: 32px;
+	color: #333;
+	height: 80px;
+}
+.head a{
+	padding-top: 6px;
+    padding-left: 20px;
+    float: left;
+}
+.head a img{
+	width: 20px;
+	margin-top: 20px;
+}
+.list{
+ 	width: 100%;
+ 	border-bottom: 1px solid #ccc;
+}
+.list ul{
+	overflow: hidden;
+	margin-bottom: -1px;
+}
+.list li{
+	float: left;
+	width:25%;
+	text-align: center;
+	line-height: 60px;
+}
+.list li a{
+	display:block;
+	color: #666;
+	font-size: 28px;
+}
+.list .cur a{
+	color: #ffa104;
+	border-bottom: 2px solid #ffa104;
+}
+/*详情开始*/
+
+.pic ul  .pic_a{
+	overflow: hidden;
+	border-bottom: 1px solid #ccc;
+
+}
+.pic .pic_a .mc{
+	width: 90%;
+	margin: 0 auto;
+	overflow: hidden;
+	padding: 10px 0;
+	color: #333;
+	font-size: 26px;
+
+
+}
+.pic .pic_a p span{
+	float: right;
+	color: #ffa104;
+}
+.pic_wrap{
+	overflow: hidden;
+}
+.pic .pic_a h3{
+	float: left;
+	width:33%;
+
+}
+.pic .pic_a h3 img{
+	width: 150px;
+	padding:0 20px 15px 20px;
+	height: 150px;
+
+}
+.pic .font{
+	float: left;
+	width:67%;
+}
+
+.pic .font ul li{
+	font-size: 24px;
+	line-height: 36px;
+}
+.pic .font .color{
+	font-size: 26px;
+	color: #333;
+}
+.pic .font ul .fu{
+	float: left;
+}
+.pic_mon{
+	width: 90%;
+	margin: 0 auto;
+	font-size: 24px;
+	padding-bottom: 10px;
+}
+.pic .fu p{
+	float: left;
+    border: 1px solid #ffa104;
+    margin-left: 20px;
+ 	width: 50px;
+    text-align: center;
+    background: #ffa104;
+    color: #fff;
+}
+.pic .font .fu .del{
+	width:80px;
+	margin-left: 40px;
+	border: 1px solid #ccc;
+	background: none;
+	color: #666;
+}
+.no{
+	width: 100%;
+	height: 10px;
+	background: #f5f5f5;
+}
+

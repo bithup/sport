@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xgh.sportsite.dao.write.IChildVenueCuttingDaoW">
+
+	<!--ʵ��ӳ��-->
+	<resultMap id="childVenueCuttingMap" type="com.xgh.sportsite.entity.ChildVenueCutting">
+		<!--主键id-->
+		<id property="id" column="id" javaType="Long" />
+		<!--分场馆id-->
+		<result property="childVenueId" column="child_venue_id" javaType="long" jdbcType="BIGINT" />
+		<!--订单id-->
+		<result property="orderId" column="order_id" javaType="long" jdbcType="BIGINT" />
+		<!--时间段-->
+		<result property="timePeriod" column="time_period" javaType="String" jdbcType="VARCHAR" />
+		<!--状态（-1：删除  0：空闲  1：已预订）-->
+		<result property="status" column="status" javaType="int" jdbcType="INTEGER" />
+		<!--开始时间（日期）-->
+		<result property="startDate" column="start_date" javaType="Date" jdbcType="TIMESTAMP" />
+		<!--结束时间（暂不使用）-->
+		<result property="endDate" column="end_date" javaType="Date" jdbcType="TIMESTAMP" />
+		<!--创建时间-->
+		<result property="createDate" column="create_date" javaType="Date" jdbcType="TIMESTAMP" />
+		<!--修改时间-->
+		<result property="updateDate" column="update_date" javaType="Date" jdbcType="TIMESTAMP" />
+		<!--排序-->
+		<result property="ord" column="ord" javaType="long" jdbcType="BIGINT" />
+		<!--备用字段1-->
+		<result property="data1" column="data_1" javaType="String" jdbcType="VARCHAR" />
+		<!--备用字段2-->
+		<result property="data2" column="data_2" javaType="long" jdbcType="BIGINT" />
+		<!--备用字段3-->
+		<result property="data3" column="data_3" javaType="int" jdbcType="INTEGER" />
+		<!--备用字段4-->
+		<result property="data4" column="data_4" javaType="Double" jdbcType="DOUBLE" />
+	</resultMap>
+
+
+	<delete id="delete" parameterType="java.lang.Long">
+		 DELETE FROM tb_child_venue_cutting
+		 WHERE id = #{id}
+	</delete>
+
+	<insert id="insert" parameterType="com.xgh.sportsite.entity.ChildVenueCutting">
+		 INSERT INTO tb_child_venue_cutting
+ 		(id,child_venue_id,order_id,time_period,status,start_date,end_date,create_date,update_date,ord,data_1,data_2,data_3,data_4) 
+		 VALUES 
+ 		(#{id},#{childVenueId},#{orderId},#{timePeriod},#{status},#{startDate},#{endDate},#{createDate},#{updateDate},#{ord},#{data1},#{data2},#{data3},#{data4}) 
+	</insert>
+
+	<update id="updateById" parameterType="com.xgh.sportsite.entity.ChildVenueCutting">
+		 UPDATE tb_child_venue_cutting
+ 		 <set> 
+			<if test="childVenueId != null">
+				 child_venue_id = #{childVenueId},
+			</if>
+			<if test="orderId != null">
+				 order_id = #{orderId},
+			</if>
+			<if test="timePeriod != null">
+				 time_period = #{timePeriod},
+			</if>
+			<if test="status != null">
+				 status = #{status},
+			</if>
+			<if test="startDate != null">
+				 start_date = #{startDate},
+			</if>
+			<if test="endDate != null">
+				 end_date = #{endDate},
+			</if>
+			<if test="createDate != null">
+				 create_date = #{createDate},
+			</if>
+			<if test="updateDate != null">
+				 update_date = #{updateDate},
+			</if>
+			<if test="ord != null">
+				 ord = #{ord},
+			</if>
+			<if test="data1 != null">
+				 data_1 = #{data1},
+			</if>
+			<if test="data2 != null">
+				 data_2 = #{data2},
+			</if>
+			<if test="data3 != null">
+				 data_3 = #{data3},
+			</if>
+			<if test="data4 != null">
+				 data_4 = #{data4},
+			</if>
+
+ 		 </set>
+		 WHERE id = #{id}
+	</update>
+
+	<update id="update" parameterType="com.xgh.sportsite.entity.ChildVenueCutting">
+		 UPDATE tb_child_venue_cutting
+		 SET 
+			 child_venue_id = #{childVenueId},
+			 order_id = #{orderId},
+			 time_period = #{timePeriod},
+			 status = #{status},
+			 start_date = #{startDate},
+			 end_date = #{endDate},
+			 create_date = #{createDate},
+			 update_date = #{updateDate},
+			 ord = #{ord},
+			 data_1 = #{data1},
+			 data_2 = #{data2},
+			 data_3 = #{data3},
+			 data_4 = #{data4}
+		 WHERE id = #{id}
+	</update>
+
+</mapper>

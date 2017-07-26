@@ -1,0 +1,135 @@
+body{
+	background: #f2f2f2 !important;
+}
+.content{
+	font-family: "微软雅黑";
+}
+.head{
+	line-height: 80px;
+	height: 80px;
+	text-align: center;
+	overflow: hidden;
+	border-bottom: 1px solid #ccc;
+	font-size: 32px;
+	color: #333;
+	background: #f9f9f9;
+}
+.head a{
+	float: left;
+}
+.head a img{
+	width: 20px;
+	margin: 20px 0 0 20px;
+}
+.balance{
+	line-height: 80px;
+	font-size: 28px;
+	text-align: center;
+	border-bottom: 1px solid #dedede;
+	color: #333;
+}
+.balance_wrap p.statement{
+	font-size: 24px;
+	color: #868686;
+	margin: 17px 0 0 20px;
+	line-height: 24px;
+}
+.default_way p{
+	font-size: 28px;
+	color: #333;
+	line-height: 28px;
+	padding: 34px 0 13px 30px;
+	border-bottom: 1px solid #dedede;
+}
+.default_way ul li{
+	padding: 16px 27px;
+	border-bottom: 1px solid #dedede;
+	overflow: hidden;
+	background: url(../images/my_enter.png) 95% center no-repeat;
+}
+.default_way ul li img{
+	width: 79px;
+	float: left;
+	height: 77px;
+}
+.con_right{
+	float: left;
+	margin-left: 10px;
+}
+.con_right span{
+	display: block;
+	font-size: 24px;
+	color: #333;
+}
+.wallet_btn input{
+	display: block;
+	width: 95%;
+	background: #ffcb51;
+	font-size: 28px;
+	text-align: center;
+	border: none;
+	outline: none;
+	color: #fff;
+	line-height: 76px;
+	font-family: '微软雅黑';
+	margin: 130px auto 0;
+}
+.wallet_pass{
+	float: right;
+	font-size: 26px;
+	margin: 45px 37px 0 0;
+}
+.wallet_pass a{
+	color: #333;
+}
+@media screen and (min-width: 1024px) {
+	body,html{
+		font-size: 60px;
+	}
+	.head{
+		line-height: .80rem;
+		height: .80rem;
+		font-size: .32rem;
+	}
+	.head a img{
+		width: .20rem;
+		margin: .20rem 0 0 .20rem;
+	}
+	.balance{
+		line-height: .80rem;
+		font-size: .28rem;
+	}
+	.balance_wrap p.statement{
+		font-size: .24rem;
+		margin: .17rem 0 0 .20rem;
+		line-height: .24rem;
+	}
+	.default_way p{
+		font-size: .28rem;
+		line-height: .28rem;
+		padding: .34rem 0 .13rem .30rem;
+	}
+	.default_way ul li{
+		padding: .16rem .27rem;
+		background: url(../images/my_enter.png) 95% center no-repeat;
+	}
+	.default_way ul li img{
+		width: .79rem;
+		height: .77rem;
+	}
+	.con_right{
+		margin-left: .10rem;
+	}
+	.con_right span{
+		font-size: .24rem;
+	}
+	.wallet_btn input{
+		font-size: .28rem;
+		line-height: .76rem;
+		margin: 1.30rem auto 0;
+	}
+	.wallet_pass{
+		font-size: .26rem;
+		margin: .45rem .37rem 0 0;
+	}
+}

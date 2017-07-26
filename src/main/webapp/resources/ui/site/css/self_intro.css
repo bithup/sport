@@ -1,0 +1,58 @@
+.content{
+	font-family: "微软雅黑";
+}
+.head{
+	line-height: 50px;
+	height: 50px;
+	overflow: hidden;
+	font-size: 18px;
+	color: #333;
+	text-align: center;
+	background: #fff;
+}
+.head a{
+	float: left;
+}
+.head a img{
+	padding:11px 0 11px 20px;
+}
+.head span{
+	float: right;
+	color: #ffae00;
+}
+.intro_txt{
+	display: block;
+	width: 96%;
+	margin: 0 auto;
+	border: none;
+	outline: none;
+	resize:none;
+	background: #fff;
+	height: 210px;
+	margin-top: 20px;
+	font-size: 16px;
+	padding: 10px;
+	font-family: '微软雅黑';
+}
+.self_wrap{
+	position: relative;
+	width: 85%;
+	margin: 0 auto;
+}
+.wordcount{
+	position: absolute;
+	bottom: 6px;
+	right: 14px;
+}
+.name_suc{
+	width: 80%;
+	background: #ffae00;
+	color: #fff;
+	font-size: 18px;
+	padding: 10px 0;
+	margin: 55px auto 0;
+	border: none;
+	outline: none;
+	font-family: '微软雅黑';
+	display: block;
+}

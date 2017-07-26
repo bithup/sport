@@ -1,0 +1,210 @@
+body{
+	background: #fff!important;
+}
+.content{
+	font-family: "微软雅黑";
+	position: relative;
+}
+.head{
+	line-height: 80px;
+	height: 80px;
+	text-align: center;
+	overflow: hidden;
+	border-bottom: 1px solid #ccc;
+	font-size: 32px;
+	color: #333;
+}
+.head a{
+	float: left;
+}
+.head a img{
+	padding:11px 0 11px 20px;
+	width: 20px;
+	margin-top: 10px;
+}
+.no{
+	width: 100%;
+	height: 10px;
+	background: #f5f5f5;
+}
+.detail ul li{
+	line-height: 100px;
+	border-bottom: 1px solid #ccc;
+	padding: 0 20px;
+	color: #333;
+	overflow: hidden;
+	position: relative;
+	font-size: 26px;
+}
+.detail ul li span{
+	float: right;
+	/* margin-right: 26px; */
+}
+.detail ul li span img{
+	width: 50%;
+}
+.detail ul li span input{
+	border: 0;
+	margin-right: 20px;
+	text-align: right;
+}
+.detail ul li img{
+	float: right;
+	padding: 17px 0;
+}
+.detail ul li img.per_logo{
+	width: 64px;
+	height: 64px;
+	border-radius: 50%;
+	display: inline-block;
+}
+.detail ul li i{
+	float: right;
+}
+.detail ul li a{
+	margin-left: 26px;
+	overflow: hidden;
+	float: right;
+}
+.detail input{
+	border: none;
+	float: right;
+	line-height: 100px;
+	/* background: url(../images/my_zk.png) right 10px no-repeat; */
+	text-align: right;
+	/* padding-right: 37px; */
+	font-family: '微软雅黑';
+	width: 82%;
+}
+.detail input.per_logo_sel{
+	position: absolute;
+	right: 20px;
+	top: 0px;
+	display: inline-block;
+	width: 65px;
+	height: 99px;
+	opacity: 0;
+}
+.detail input.self_intro{
+	display: inline-block;
+	max-width: 270px;
+	overflow: hidden;
+	text-overflow:ellipsis;
+	white-space: nowrap;
+	width: 270px;
+}
+.detail input.sex_ipt{
+	opacity: 0;
+	position: absolute;
+	right: 32px;
+	top: 0px;
+	display: inline-block;
+}
+.exit{
+	width: 80%;
+	background: #ffb400;
+	font-size: 32px;
+	margin: 10% auto 0;
+	padding: 10px 0;
+	text-align: center;
+}
+.exit input{
+	border: none;
+	outline: none;
+	background: #ffb400;
+	color: #fff;
+	font-family: '微软雅黑';
+}
+.sexsel_wrap{
+	width: 100%;
+	background: rgba(51,51,51,0.5);
+	position: absolute;
+	top: 0;
+	left: 0;
+	display: none;
+}
+.sex_sel{
+	width: 250px;
+	font-size: 18px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-top: -50px;
+	margin-left: -125px;
+	background: #fff;
+	padding: 20px;
+}
+.sex_sel div{
+	padding: 10px 0;
+}
+.man_wrap{border-bottom: 1px solid #ccc;}
+.man_wrap input{margin: 10px 0;}
+.sex_sel input{margin-left: 141px;}
+@media screen and (min-width: 1024px) {
+	body,html{
+		font-size: 60px;
+	}
+	.head{
+		line-height: .80rem;
+		height: .80rem;
+		font-size: .32rem;
+	}
+	.head a img{
+		padding:.11rem 0 .11rem .20rem;
+		width: .20rem;
+		margin-top: .10rem;
+	}
+	.no{
+		height: .10rem;
+	}
+	.detail ul li{
+		line-height: 1.00rem;
+		padding: 0 .20rem;
+		font-size: .26rem;
+	}
+	.detail ul li span input{
+		margin-right: .20rem;
+	}
+	.detail ul li img{
+		padding: .17rem 0;
+	}
+	.detail ul li img.per_logo{
+		width: .64rem;
+		height: .64rem;
+	}
+	.detail ul li a{
+		margin-left: .26rem;
+	}
+	.detail input{
+		line-height: 1.00rem;
+		width: 88%;
+	}
+	.detail input.per_logo_sel{
+		right: .20rem;
+		width: .65rem;
+		height: .99rem;
+	}
+	.detail input.self_intro{
+		max-width: 2.70rem;
+		width: 2.70rem;
+	}
+	.detail input.sex_ipt{
+		right: .32rem;
+	}
+	.exit{
+		font-size: .32rem;
+		padding: .10rem 0;
+	}
+	.sex_sel{
+		width: 2.50rem;
+		font-size: .18rem;
+		margin-top: -.50rem;
+		margin-left: -1.25rem;
+		padding: .20rem;
+	}
+	.sex_sel div{
+		padding: .10rem 0;
+	}
+	.man_wrap input{margin: .10rem 0;}
+	.sex_sel input{margin-left: 1.41rem;}
+}

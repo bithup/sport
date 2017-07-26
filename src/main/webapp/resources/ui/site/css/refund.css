@@ -1,0 +1,92 @@
+body{
+	background: #f0f0f0 !important;
+}
+.content{
+	font-family: "微软雅黑";
+}
+.log_tit{ width: 100%; height: 80px; border-bottom: #c6c6c6 solid 1px;background:#fff;text-align: center;color: #ffd175; font-size: 30px; font-weight: normal;line-height: 80px;}
+.log_tit i{ display: inline-block; width: 20px; height: 36px; background: url(../images/ret.png) no-repeat 0 0; background-size:cover; float: left; margin: 22px 0 0 10px;}
+.refund_con{
+	width: 100%;
+	overflow: hidden;
+}
+.refund_way{
+	margin: 48px 0 0 38px;
+}
+.refund_mon{
+	line-height: 62px;
+	padding-left: 48px;
+	background: url(../images/refund_normal.png) 0 center no-repeat;
+	background-size: 6%;
+}
+.act_way{
+	background: url(../images/refund_select.png) 0 center no-repeat;
+	background-size: 6%;
+}
+.refund_mon i{
+	font-size: 28px;
+	color: #333;
+	line-height: 68px;
+}
+.refund_way li{
+	margin-bottom: 30px;
+	cursor: pointer;
+}
+.refund_way input{
+	display: inline-block;
+	width: 238px;
+	height: 60px;
+	font-size: 28px;
+	border: none;
+	outline: none;
+	font-family: '微软雅黑';
+	padding-left: 20px;
+	margin-right: 12px;
+}
+/* placeholder样式 */
+::-webkit-input-placeholder { /* WebKit browsers */
+	color: #ccc;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+	color: #ccc;
+	opacity: 1;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+	color: #ccc;
+	opacity: 1;
+}
+:-ms-input-placeholder { /* Internet Explorer 10+ */
+	color: #ccc;
+}
+.refund_reason{
+	width: 88%;
+	margin: 0 auto;
+}
+.refund_reason p{
+	font-size: 28px;
+	color: #333;
+	margin-bottom: 20px;
+}
+.refund_reason textarea{
+	display: block;
+	width: 93%;
+	height: 200px;
+	resize:none;
+	border: none;
+	font-size: 20px;
+	font-family: '微软雅黑';
+	padding: 20px;
+}
+.refund_btn input{
+	display: block;
+	width: 87%;
+	line-height: 69px;
+	font-size: 24px;
+	background: #fec240;
+	color: #fff;
+	text-align: center;
+	border: none;
+	font-family: '微软雅黑';
+	margin: 80px auto 0;
+	border-radius: 8px;
+}

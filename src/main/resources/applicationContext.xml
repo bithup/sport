@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd
+      http://www.springframework.org/schema/tx
+      http://www.springframework.org/schema/tx/spring-tx-3.0.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+    <bean id="propertyConfigurer"
+          class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="locations">
+            <list>
+                <value>classpath:jdbc.properties</value>
+            </list>
+        </property>
+    </bean>
+    <!-- 除了控制层,其他的都扫描 -->
+    <context:component-scan base-package="com.xgh.*">
+        <context:exclude-filter type="annotation"
+                                expression="org.springframework.stereotype.Controller"/>
+    </context:component-scan>
+
+    <!-- 注解扫描 -->
+
+    <!-- 读数据源 -->
+    <bean id="dataSourceR" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+        <property name="driverClass" value="${jdbcR.driverClass}"/>
+        <property name="jdbcUrl" value="${jdbcR.url}"/>
+        <property name="user" value="${jdbcR.username}"/>
+        <property name="password" value="${jdbcR.password}"/>
+        <property name="autoCommitOnClose" value="true"/>
+        <property name="minPoolSize" value="5"/>
+        <property name="maxPoolSize" value="30"/>
+        <property name="initialPoolSize" value="10"/>
+        <!-- 最大空闲时间,1800秒内未使用则连接被丢弃。若为0则永不丢弃。Default: 0 -->
+        <property name="maxIdleTime" value="0"/>
+        <property name="testConnectionOnCheckin" value="false"/>
+        <property name="testConnectionOnCheckout" value="true"/>
+        <property name="preferredTestQuery" value="SELECT 1"/>
+        <property name="acquireIncrement" value="10"/>
+        <property name="acquireRetryAttempts" value="3"/>
+        <property name="checkoutTimeout" value="30000"/>
+
+    </bean>
+
+    <!-- 写数据源 -->
+    <bean id="dataSourceW" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+        <property name="driverClass" value="${jdbcW.driverClass}"/>
+        <property name="jdbcUrl" value="${jdbcW.url}"/>
+        <property name="user" value="${jdbcW.username}"/>
+        <property name="password" value="${jdbcW.password}"/>
+        <property name="autoCommitOnClose" value="true"/>
+        <property name="minPoolSize" value="5"/>
+        <property name="maxPoolSize" value="30"/>
+        <property name="initialPoolSize" value="10"/>
+        <!-- 最大空闲时间,1800秒内未使用则连接被丢弃。若为0则永不丢弃。Default: 0 -->
+        <property name="maxIdleTime" value="0"/>
+        <property name="testConnectionOnCheckin" value="false"/>
+        <property name="testConnectionOnCheckout" value="true"/>
+        <property name="preferredTestQuery" value="SELECT 1"/>
+        <property name="acquireIncrement" value="10"/>
+        <property name="acquireRetryAttempts" value="3"/>
+        <property name="checkoutTimeout" value="30000"/>
+    </bean>
+
+    <!-- 读数据源 -->
+    <bean id="dataSourceTR" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+        <property name="driverClass" value="${jdbcTR.driverClass}"/>
+        <property name="jdbcUrl" value="${jdbcTR.url}"/>
+        <property name="user" value="${jdbcTR.username}"/>
+        <property name="password" value="${jdbcTR.password}"/>
+        <property name="autoCommitOnClose" value="true"/>
+        <property name="minPoolSize" value="5"/>
+        <property name="maxPoolSize" value="30"/>
+        <property name="initialPoolSize" value="10"/>
+        <!-- 最大空闲时间,1800秒内未使用则连接被丢弃。若为0则永不丢弃。Default: 0 -->
+        <property name="maxIdleTime" value="0"/>
+        <property name="testConnectionOnCheckin" value="false"/>
+        <property name="testConnectionOnCheckout" value="true"/>
+        <property name="preferredTestQuery" value="SELECT 1"/>
+        <property name="acquireIncrement" value="10"/>
+        <property name="acquireRetryAttempts" value="3"/>
+        <property name="checkoutTimeout" value="30000"/>
+    </bean>
+
+    <!-- 写数据源 -->
+    <bean id="dataSourceTW" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+        <property name="driverClass" value="${jdbcTW.driverClass}"/>
+        <property name="jdbcUrl" value="${jdbcTW.url}"/>
+        <property name="user" value="${jdbcTW.username}"/>
+        <property name="password" value="${jdbcTW.password}"/>
+        <property name="autoCommitOnClose" value="true"/>
+        <property name="minPoolSize" value="5"/>
+        <property name="maxPoolSize" value="30"/>
+        <property name="initialPoolSize" value="10"/>
+        <!-- 最大空闲时间,1800秒内未使用则连接被丢弃。若为0则永不丢弃。Default: 0 -->
+        <property name="maxIdleTime" value="0"/>
+        <property name="testConnectionOnCheckin" value="false"/>
+        <property name="testConnectionOnCheckout" value="true"/>
+        <property name="preferredTestQuery" value="SELECT 1"/>
+        <property name="acquireIncrement" value="10"/>
+        <property name="acquireRetryAttempts" value="3"/>
+        <property name="checkoutTimeout" value="30000"/>
+    </bean>
+
+    <!-- define the SqlSessionFactory -->
+    <bean id="sqlSessionFactoryR" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="dataSourceR"/>
+        <property name="mapperLocations" value="classpath:mapperR/*.xml"/>
+    </bean>
+
+    <!-- define the SqlSessionFactory -->
+    <bean id="sqlSessionFactoryW" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="dataSourceW"/>
+        <property name="mapperLocations" value="classpath:mapperW/*.xml"/>
+    </bean>
+
+    <!-- define the SqlSessionFactory -->
+    <bean id="sqlSessionFactoryTR" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="dataSourceTR"/>
+        <property name="mapperLocations" value="classpath:mapperTR/*.xml"/>
+    </bean>
+
+    <!-- define the SqlSessionFactory -->
+    <bean id="sqlSessionFactoryTW" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="dataSourceTW"/>
+        <property name="mapperLocations" value="classpath:mapperTW/*.xml"/>
+    </bean>
+
+    <!-- scan for mappers and let them be autowired -->
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="basePackage" value="com.xgh.sportsite.dao.readTR"/>
+        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactoryTR"/>
+    </bean>
+
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="basePackage" value="com.xgh.sportsite.dao.writeTW"/>
+        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactoryTW"/>
+    </bean>
+
+    <!-- scan for mappers and let them be autowired -->
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="basePackage" value="com.xgh.sportsite.dao.read"/>
+        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactoryR"/>
+    </bean>
+
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="basePackage" value="com.xgh.sportsite.dao.write"/>
+        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactoryW"/>
+    </bean>
+
+
+    <!-- 事务回滚 -->
+    <tx:annotation-driven transaction-manager="transactionManager"/>
+    <bean id="transactionManager1" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSourceW"/>
+    </bean>
+
+    <tx:annotation-driven  transaction-manager="transactionManager"/>
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSourceTW"/>
+    </bean>
+    <tx:advice id="userTxAdvice" transaction-manager="transactionManager1">
+        <tx:attributes>
+            <tx:method name="remove*" propagation="REQUIRED" />
+            <tx:method name="delete*" propagation="REQUIRED"  />
+            <tx:method name="add*" propagation="REQUIRED"  />
+            <tx:method name="insert*" propagation="REQUIRED"  />
+            <tx:method name="create*" propagation="REQUIRED"  />
+            <tx:method name="save*" propagation="REQUIRED"  />
+            <tx:method name="update*" propagation="REQUIRED"  />
+            <tx:method name="publish*" propagation="REQUIRED"  />
+            <tx:method name="get*" propagation="REQUIRED"  />
+            <tx:method name="list*" propagation="REQUIRED"  />
+            <tx:method name="query*" propagation="REQUIRED"  />
+            <tx:method name="find*" propagation="REQUIRED"  />
+            <tx:method name="page*" propagation="REQUIRED"  />
+            <!--     <tx:method name="*" read-only="false"  />-->
+        </tx:attributes>
+    </tx:advice>
+    <aop:config proxy-target-class="true">
+        <aop:pointcut id="pc"  expression="execution(* com.xgh.sportsite.services.*.*(..))" />
+        <aop:advisor pointcut-ref="pc" advice-ref="userTxAdvice" />
+    </aop:config>
+
+
+    <tx:advice id="TxAdvice" transaction-manager="transactionManager">
+        <tx:attributes>
+            <tx:method name="remove*" propagation="REQUIRED"/>
+            <tx:method name="register*" propagation="REQUIRED"/>
+            <tx:method name="delete*" propagation="REQUIRED"/>
+            <tx:method name="add*" propagation="REQUIRED"/>
+            <tx:method name="insert*" propagation="REQUIRED"/>
+            <tx:method name="create*" propagation="REQUIRED"/>
+            <tx:method name="save*" propagation="REQUIRED"/>
+            <tx:method name="update*" propagation="REQUIRED"/>
+            <tx:method name="publish*" propagation="REQUIRED"/>
+            <!-- <tx:method name="get*" propagation="REQUIRED"  />-->
+            <tx:method name="list*" propagation="REQUIRED"/>
+            <tx:method name="query*" propagation="REQUIRED"/>
+            <tx:method name="find*" propagation="REQUIRED"/>
+            <tx:method name="page*" propagation="REQUIRED"/>
+            <!--     <tx:method name="*" read-only="false"  />-->
+        </tx:attributes>
+    </tx:advice>
+    <aop:config proxy-target-class="true">
+        <aop:pointcut id="pc" expression="execution(* com.xgh.sportsite.services.*.*(..))"/>
+        <aop:advisor pointcut-ref="pc" advice-ref="TxAdvice"/>
+    </aop:config>
+
+
+</beans>

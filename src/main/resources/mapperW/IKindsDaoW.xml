@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xgh.sportsite.dao.write.IKindsDaoW">
+
+	<resultMap id="kindsMap" type="com.xgh.sportsite.entity.Kinds">
+		<!---->
+		<id property="id" column="id" javaType="Long" />
+		<!--生产规则 101000+id-->
+		<result property="nid" column="nid" javaType="long" jdbcType="BIGINT" />
+		<!--父Id-->
+		<result property="parentId" column="parent_id" javaType="long" jdbcType="BIGINT" />
+		<!--行业id-->
+		<result property="instId" column="inst_id" javaType="long" jdbcType="BIGINT" />
+		<!--行业编号-->
+		<result property="instCode" column="inst_code" javaType="String" jdbcType="VARCHAR" />
+		<!--操作人员的Id-->
+		<result property="userId" column="user_id" javaType="long" jdbcType="BIGINT" />
+		<!--种类编码-->
+		<result property="code" column="code" javaType="String" jdbcType="VARCHAR" />
+		<!--父编码-->
+		<result property="parentCode" column="parent_code" javaType="String" jdbcType="VARCHAR" />
+		<!--前置code，从后向前递推处理-->
+		<result property="preCode" column="pre_code" javaType="String" jdbcType="VARCHAR" />
+		<!--分类名称-->
+		<result property="name" column="name" javaType="String" jdbcType="VARCHAR" />
+		<!--拼音码-->
+		<result property="spellName" column="spell_name" javaType="String" jdbcType="VARCHAR" />
+		<!--拼音首字母-->
+		<result property="spellFirstName" column="spell_first_name" javaType="String" jdbcType="VARCHAR" />
+		<!--等级-->
+		<result property="level" column="level" javaType="int" jdbcType="INTEGER" />
+		<!--运动项图片路径-->
+		<result property="sportUrl" column="sport_url" javaType="String" jdbcType="VARCHAR" />
+		<!--运动项图片绝对路径-->
+		<result property="sportRealUrl" column="sport_real_url" javaType="String" jdbcType="VARCHAR" />
+		<!--创建时间-->
+		<result property="createDate" column="create_date" javaType="Date" jdbcType="TIMESTAMP" />
+		<!--更新时间-->
+		<result property="updateDate" column="update_date" javaType="Date" jdbcType="TIMESTAMP" />
+		<!--排序-->
+		<result property="ord" column="ord" javaType="long" jdbcType="BIGINT" />
+		<!--0废弃，1使用-->
+		<result property="status" column="status" javaType="int" jdbcType="INTEGER" />
+		<!--备注-->
+		<result property="remark" column="remark" javaType="String" jdbcType="VARCHAR" />
+		<!--区域编码-->
+		<result property="zoneCode" column="zone_code" javaType="String" jdbcType="VARCHAR" />
+		<!--备用字段1-->
+		<result property="data1" column="data_1" javaType="long" jdbcType="BIGINT" />
+		<!--备用字段2-->
+		<result property="data2" column="data_2" javaType="String" jdbcType="VARCHAR" />
+		<!--备用字段3-->
+		<result property="data3" column="data_3" javaType="String" jdbcType="VARCHAR" />
+		<!--备用字段4-->
+		<result property="data4" column="data_4" javaType="int" jdbcType="INTEGER" />
+	</resultMap>
+
+
+	<delete id="delete" parameterType="java.lang.Long">
+		 DELETE FROM tb_kinds
+		 WHERE id = #{id}
+	</delete>
+
+	<insert id="insert" parameterType="com.xgh.sportsite.entity.Kinds">
+		 INSERT INTO tb_kinds
+ 		(id,nid,parent_id,inst_id,inst_code,user_id,code,parent_code,pre_code,name,spell_name,spell_first_name,level,sport_url,sport_real_url,create_date,update_date,ord,status,remark,zone_code,data_1,data_2,data_3,data_4) 
+		 VALUES 
+ 		(#{id},#{nid},#{parentId},#{instId},#{instCode},#{userId},#{code},#{parentCode},#{preCode},#{name},#{spellName},#{spellFirstName},#{level},#{sportUrl},#{sportRealUrl},#{createDate},#{updateDate},#{ord},#{status},#{remark},#{zoneCode},#{data1},#{data2},#{data3},#{data4}) 
+	</insert>
+
+	<update id="updateById" parameterType="com.xgh.sportsite.entity.Kinds">
+		 UPDATE tb_kinds
+ 		 <set> 
+			<if test="nid != null">
+				 nid = #{nid},
+			</if>
+			<if test="parentId != null">
+				 parent_id = #{parentId},
+			</if>
+			<if test="instId != null">
+				 inst_id = #{instId},
+			</if>
+			<if test="instCode != null">
+				 inst_code = #{instCode},
+			</if>
+			<if test="userId != null">
+				 user_id = #{userId},
+			</if>
+			<if test="code != null">
+				 code = #{code},
+			</if>
+			<if test="parentCode != null">
+				 parent_code = #{parentCode},
+			</if>
+			<if test="preCode != null">
+				 pre_code = #{preCode},
+			</if>
+			<if test="name != null">
+				 name = #{name},
+			</if>
+			<if test="spellName != null">
+				 spell_name = #{spellName},
+			</if>
+			<if test="spellFirstName != null">
+				 spell_first_name = #{spellFirstName},
+			</if>
+			<if test="level != null">
+				 level = #{level},
+			</if>
+			<if test="sportUrl != null">
+				 sport_url = #{sportUrl},
+			</if>
+			<if test="sportRealUrl != null">
+				 sport_real_url = #{sportRealUrl},
+			</if>
+			<if test="createDate != null">
+				 create_date = #{createDate},
+			</if>
+			<if test="updateDate != null">
+				 update_date = #{updateDate},
+			</if>
+			<if test="ord != null">
+				 ord = #{ord},
+			</if>
+			<if test="status != null">
+				 status = #{status},
+			</if>
+			<if test="remark != null">
+				 remark = #{remark},
+			</if>
+			<if test="zoneCode != null">
+				 zone_code = #{zoneCode},
+			</if>
+			<if test="data1 != null">
+				 data_1 = #{data1},
+			</if>
+			<if test="data2 != null">
+				 data_2 = #{data2},
+			</if>
+			<if test="data3 != null">
+				 data_3 = #{data3},
+			</if>
+			<if test="data4 != null">
+				 data_4 = #{data4},
+			</if>
+
+ 		 </set>
+		 WHERE id = #{id}
+	</update>
+
+	<update id="update" parameterType="com.xgh.sportsite.entity.Kinds">
+		 UPDATE tb_kinds
+		 SET 
+			 nid = #{nid},
+			 parent_id = #{parentId},
+			 inst_id = #{instId},
+			 inst_code = #{instCode},
+			 user_id = #{userId},
+			 code = #{code},
+			 parent_code = #{parentCode},
+			 pre_code = #{preCode},
+			 name = #{name},
+			 spell_name = #{spellName},
+			 spell_first_name = #{spellFirstName},
+			 level = #{level},
+			 sport_url = #{sportUrl},
+			 sport_real_url = #{sportRealUrl},
+			 create_date = #{createDate},
+			 update_date = #{updateDate},
+			 ord = #{ord},
+			 status = #{status},
+			 remark = #{remark},
+			 zone_code = #{zoneCode},
+			 data_1 = #{data1},
+			 data_2 = #{data2},
+			 data_3 = #{data3},
+			 data_4 = #{data4}
+		 WHERE id = #{id}
+	</update>
+
+</mapper>

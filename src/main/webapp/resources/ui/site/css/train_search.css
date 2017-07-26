@@ -1,0 +1,101 @@
+body{
+	background: #fff !important;
+}
+.content{
+	font-family: "微软雅黑";
+}
+.long_tit{
+	width: 100%;
+	margin: 0 auto;
+	line-height: 91px;
+	overflow: hidden;
+}
+.long_tit i{ 
+	display: inline-block; 
+	width: 16px; 
+	height: 32px; 
+	background: url(../images/ret.png) no-repeat 0 0;
+	background-size:cover;
+	float: left; 
+	margin: 32px 0 0 15px;
+}
+.long_tit input{
+	display: inline-block;
+	width: 67%;
+	border-radius: 29px;
+	border: none;
+	outline: none;
+	background: #f2f2f2;
+	line-height: 51px;
+	padding: 0 39px;
+	font-family: '微软雅黑';
+	font-size: 16px;
+	margin-left: 21px;
+}
+.long_tit span{
+	font-size: 24px;
+	margin-left: 11px;
+	color: #797979;
+}
+.pic{
+	background: #fff;
+	height: 570px;
+	overflow: hidden;
+	padding-bottom: 77px;	
+}
+.pic ul{
+	width: 90%;
+	margin: 0 auto;
+
+}
+.pic li{
+	overflow: hidden;
+	border-bottom: 1px solid #ccc;
+
+}
+.pic li h3{
+	float: left;
+	padding: 10px 0;
+	width: 40%;
+
+}
+.pic li h3 img{
+	width: 70%;
+}
+
+.pic li p{
+	width: 60%;
+	float: right;
+	font-size: 16px;
+	padding-top: 16px;
+}
+.pic p b{
+	font-weight: normal;
+    font-size: 18px;
+    color: #333;
+}
+.pic li p span{
+    display: block;
+    padding: 4px 0;
+    font-size: 15px;
+}
+
+.pic li i{
+	overflow: hidden;
+}
+.pic li i a{
+
+    float: right;
+    width: 70px;
+    line-height: 30px;
+    text-align: center;
+    border: 1px solid #ffac05;
+    display: block;
+    margin-top: -12px;
+    color: #ffac05;
+}
+.no{
+	width: 100%;
+	height: 20px;
+	background: #f2f2f2;
+}

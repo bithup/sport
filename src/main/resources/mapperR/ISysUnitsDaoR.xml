@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xgh.sportsite.dao.read.ISysUnitsDaoR">
+
+	<resultMap type="com.xgh.sportsite.entity.SysUnits" id="sysUnitsMap">
+		<result property="id" column="id" javaType="long" jdbcType="BIGINT" />
+		<result property="nid" column="nid" javaType="long" jdbcType="BIGINT" />
+		<result property="parentId" column="parent_id" javaType="long" jdbcType="BIGINT" />
+		<result property="parentNid" column="parent_nid" javaType="long" jdbcType="BIGINT" />
+		<result property="instId" column="inst_id" javaType="long" jdbcType="BIGINT" />
+		<result property="instNid" column="inst_nid" javaType="long" jdbcType="BIGINT" />
+		<result property="instCode" column="inst_code" javaType="string" jdbcType="VARCHAR" />
+		<result property="unitCode" column="unit_code" javaType="string" jdbcType="VARCHAR" />
+		<result property="unitType" column="unit_type" javaType="int" jdbcType="INTEGER" />
+		<result property="unitKind" column="unit_kind" javaType="int" jdbcType="INTEGER" />
+		<result property="zoneCode" column="zone_code" javaType="string" jdbcType="VARCHAR" />
+		<result property="unitDomain" column="unit_domain" javaType="string" jdbcType="VARCHAR" />
+		<result property="unitName" column="unit_name" javaType="string" jdbcType="VARCHAR" />
+		<result property="shortName" column="short_name" javaType="string" jdbcType="VARCHAR" />
+		<result property="regDate" column="reg_date" javaType="date" jdbcType="TIMESTAMP" />
+		<result property="stopDate" column="stop_date" javaType="date" jdbcType="TIMESTAMP" />
+		<result property="userCount" column="user_count" javaType="long" jdbcType="BIGINT" />
+		<result property="unitStatus" column="unit_status" javaType="string" jdbcType="VARCHAR" />
+		<result property="adminUrl" column="admin_url" javaType="string" jdbcType="VARCHAR" />
+		<result property="portalUrl" column="portal_url" javaType="string" jdbcType="VARCHAR" />
+		<result property="unitAddress" column="unit_address" javaType="string" jdbcType="VARCHAR" />
+		<result property="telAreaCode" column="tel_area_code" javaType="string" jdbcType="VARCHAR" />
+		<result property="tel" column="tel" javaType="string" jdbcType="VARCHAR" />
+		<result property="telService" column="tel_service" javaType="string" jdbcType="VARCHAR" />
+		<result property="fax" column="fax" javaType="string" jdbcType="VARCHAR" />
+		<result property="legalPerson" column="legal_person" javaType="string" jdbcType="VARCHAR" />
+		<result property="legalPersonMobile" column="legal_person_mobile" javaType="string" jdbcType="VARCHAR" />
+		<result property="logoPath" column="logo_path" javaType="string" jdbcType="VARCHAR" />
+		<result property="logoUrl" column="logo_url" javaType="string" jdbcType="VARCHAR" />
+		<result property="version" column="version" javaType="int" jdbcType="INTEGER" />
+		<result property="ord" column="ord" javaType="long" jdbcType="BIGINT" />
+		<result property="createDate" column="create_date" javaType="date" jdbcType="TIMESTAMP" />
+		<result property="updateDate" column="update_date" javaType="date" jdbcType="TIMESTAMP" />
+		<result property="status" column="status" javaType="int" jdbcType="INTEGER" />
+		<result property="remark" column="remark" javaType="string" jdbcType="VARCHAR" />
+	</resultMap>
+	
+	<resultMap type="java.util.Map" id="sysUnitsMap2">
+		<result property="ID" column="id" javaType="long" jdbcType="BIGINT" />
+		<result property="NID" column="nid" javaType="long" jdbcType="BIGINT" />
+		<result property="PARENT_ID" column="parent_id" javaType="long" jdbcType="BIGINT" />
+		<result property="PARENT_NID" column="parent_nid" javaType="long" jdbcType="BIGINT" />
+		<result property="INST_ID" column="inst_id" javaType="long" jdbcType="BIGINT" />
+		<result property="INST_NID" column="inst_nid" javaType="long" jdbcType="BIGINT" />
+		<result property="INST_CODE" column="inst_code" javaType="string" jdbcType="VARCHAR" />
+		<result property="UNIT_CODE" column="unit_code" javaType="string" jdbcType="VARCHAR" />
+		<result property="UNIT_TYPE" column="unit_type" javaType="int" jdbcType="INTEGER" />
+		<result property="UNIT_KIND" column="unit_kind" javaType="int" jdbcType="INTEGER" />
+		<result property="ZONE_CODE" column="zone_code" javaType="string" jdbcType="VARCHAR" />
+		<result property="UNIT_DOMAIN" column="unit_domain" javaType="string" jdbcType="VARCHAR" />
+		<result property="UNIT_NAME" column="unit_name" javaType="string" jdbcType="VARCHAR" />
+		<result property="SHORT_NAME" column="short_name" javaType="string" jdbcType="VARCHAR" />
+		<result property="REG_DATE" column="reg_date" javaType="date" jdbcType="TIMESTAMP" />
+		<result property="STOP_DATE" column="stop_date" javaType="date" jdbcType="TIMESTAMP" />
+		<result property="USER_COUNT" column="user_count" javaType="long" jdbcType="BIGINT" />
+		<result property="UNIT_STATUS" column="unit_status" javaType="string" jdbcType="VARCHAR" />
+		<result property="ADMIN_URL" column="admin_url" javaType="string" jdbcType="VARCHAR" />
+		<result property="PORTAL_URL" column="portal_url" javaType="string" jdbcType="VARCHAR" />
+		<result property="UNIT_ADDRESS" column="unit_address" javaType="string" jdbcType="VARCHAR" />
+		<result property="TEL_AREA_CODE" column="tel_area_code" javaType="string" jdbcType="VARCHAR" />
+		<result property="TEL" column="tel" javaType="string" jdbcType="VARCHAR" />
+		<result property="TEL_SERVICE" column="tel_service" javaType="string" jdbcType="VARCHAR" />
+		<result property="FAX" column="fax" javaType="string" jdbcType="VARCHAR" />
+		<result property="LEGAL_PERSON" column="legal_person" javaType="string" jdbcType="VARCHAR" />
+		<result property="LEGAL_PERSON_MOBILE" column="legal_person_mobile" javaType="string" jdbcType="VARCHAR" />
+		<result property="LOGO_PATH" column="logo_path" javaType="string" jdbcType="VARCHAR" />
+		<result property="LOGO_URL" column="logo_url" javaType="string" jdbcType="VARCHAR" />
+		<result property="VERSION" column="version" javaType="int" jdbcType="INTEGER" />
+		<result property="ORD" column="ord" javaType="long" jdbcType="BIGINT" />
+		<result property="CREATE_DATE" column="create_date" javaType="date" jdbcType="TIMESTAMP" />
+		<result property="UPDATE_DATE" column="update_date" javaType="date" jdbcType="TIMESTAMP" />
+		<result property="STATUS" column="status" javaType="int" jdbcType="INTEGER" />
+		<result property="REMARK" column="remark" javaType="string" jdbcType="VARCHAR" />
+	</resultMap>
+	
+	<select id="get" parameterType="long" resultMap="sysUnitsMap">
+		select * from tb_sys_units where id = #{id}
+	</select>
+	
+	<select id="getByNid" parameterType="long" resultMap="sysUnitsMap">
+		select * from tb_sys_units where nid = #{nid}
+	</select>
+
+	<select id="getList" parameterType="hashmap" resultMap="sysUnitsMap">
+		select
+		*
+		from
+		tb_sys_units
+		<if test="keySysUnits!= null">
+			<trim prefix="WHERE" prefixOverrides="AND |OR ">
+				<if test="id!= null and id!=''">
+				and id = #{id}
+				</if>
+			</trim>
+		</if> 
+		limit 0,10
+	</select>
+
+	<select id="getListPage" parameterType="hashmap" resultMap="sysUnitsMap">
+		select
+		*
+		from
+		tb_sys_units
+		where
+		inst_id = #{instId}
+		AND status = 1 AND unit_status = 'pass'
+		<if test="unitKind==2">
+			AND (unit_type = 10 OR unit_type=11 OR unit_type = 12 )
+		</if>
+		limit ${(page-1)*pagesize},${pagesize}
+	</select>
+
+	<select id="getRows" parameterType="hashmap" resultType="long">
+		select
+		count(*) from
+		tb_sys_units
+		where
+		inst_id = #{instId}
+		AND status = 1 AND unit_status = 'pass'
+		<if test="unitKind==2">
+			AND (unit_type = 10 OR unit_type=11 OR unit_type 12 )
+		</if>
+	</select>
+
+	<select id="getAgencyUnitsByZone" parameterType="hashmap" resultMap="sysUnitsMap">
+		select
+		*
+		from tb_sys_units
+		where
+		inst_code = #{instCode}
+		AND unit_type = #{unitType}
+		AND zone_code = #{zoneCode}
+		AND status = 1
+		limit 0,1
+	</select>
+</mapper>

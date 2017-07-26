@@ -1,0 +1,90 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ include file="../../include/taglibs.jsp" %>
+<!doctype html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+    <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0,maximum-scale=1.0,user-scalable=no;">
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <title>搜索</title>
+    <base href="<%=basePath%>">
+    <link rel="stylesheet" type="text/css" href="<%=uiPath%>site/css/search.css">
+    <link rel="stylesheet" type="text/css" href="<%=uiPath%>site/css/global.css">
+    <script src="<%=uiPath%>site/js/jquery-1.8.3.min.js"></script>
+    <script src="<%=uiPath%>site/js/ort.js"></script>
+    <script type="text/javascript" src="<%=uiPath%>site/js/toast.js"></script>
+</head>
+<body>
+<div class="content">
+    <div class="head">
+        <i onclick="history.go(-1)"></i>
+        <div class="left"><input type="text" placeholder="输入教练的名称" /></div>
+        <div class="right"><a >搜索</a></div>
+    </div>
+    <div class="pic">
+        <ul class="show">
+
+        </ul>
+    </div>
+
+</div>
+<script type="text/javascript">
+    var page=1;
+    var pagesize=80;
+    $(function(){
+        $(".right").click(function () {
+            var indexCondition=$(".left>input").val();
+            if(indexCondition==''||indexCondition==null){  new Toast({message: '搜索内容不能为空!'}).show();return}
+            var jsonReturn=reqData(1,8,indexCondition);
+
+            if(jsonReturn.resultFlg==0){
+                $(".show").html("暂无数据");
+                return;
+            }
+            if(jsonReturn.resultFlg==1){
+                var resultStr=getResultStr(jsonReturn);
+                $(".show").html(resultStr);
+            }
+        });
+    });
+    //获取后台数据
+    function reqData(page,pagesize,indexCondition) {
+        var jsonReturn=new Object();
+        $.ajax({
+            url:"/coach/getCoachIndexResearch.htm",
+            type:"POST",
+            async:false,
+            data:{page:page,pageSize:pagesize,coachName:indexCondition},
+            dataType:"json",
+            success:function (data) {
+                var result=eval(data);
+                jsonReturn=result;
+            }
+        });
+        return jsonReturn;
+    }
+    //将返回数据拼接成字符串
+    // IChildVenueDao.xml type 1:场馆、2:教练、3:活动
+    //isRefund 0:不能退款、1:可以退款
+    function getResultStr(jsonReturn){
+        var resultStr='';
+        $(jsonReturn.resultData).each(function () {
+            resultStr += "<li>" +
+                "<h3><img src='" + this.headRealPath + "'/><h3>" +
+                "<p>" +
+                "<b>" + this.coachName + "</b><br/>" +
+                "<span>" + this.intro + "</span>" +
+                "<i><a href='/coach/coachDetail.htm?coachId=" + this.id + "'>" + this.kindsName + "</a></i>" +
+                "</p>" +
+                "</li>";
+
+
+
+        });
+        return resultStr;
+    }
+    //加载html标签
+
+</script>
+</body>
+</html>

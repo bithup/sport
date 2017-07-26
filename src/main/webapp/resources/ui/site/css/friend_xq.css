@@ -1,0 +1,228 @@
+.wrap{
+	font-family: "微软雅黑";
+	color: #333;
+
+}
+.content{
+	background: #fff;
+}
+.head {
+	font-size: 32px;
+	line-height: 80px;
+	background: #fff;
+	text-align: center;
+	overflow: hidden;
+	color: #333;
+	border-bottom: 1px solid #ccc;
+}
+.head .return{
+	float: left;
+	padding-left: 20px;
+}
+.head .return a{
+	display: inline-block;
+	width: 20px;
+	line-height: 80px;
+}
+.head .coll{
+	float: right;
+	padding-right: 20px;
+}
+.head .coll img{
+	width: 28px;
+}
+.head img{
+	width: 20px;
+	margin-top: 21px;
+}
+.coll .coll_collect{
+	margin-top: 13px;
+}
+.collect{
+	width: 28px;
+	height: 77px;
+	background: url(../images/collect01.png) 0 center no-repeat;
+	background-size: 64%;
+	line-height: 51px;
+}
+.collect01{
+	background: url(../images/collect.png) 0 center no-repeat;
+	background-size: 64%;
+}
+/*图片开始*/
+
+.pic{
+	overflow: hidden;
+	width: 94%;
+	margin: 0 auto;
+	padding:20px 0;
+}
+.pic img{
+	width: 150px;
+	height: 150px;
+	float: left;
+}
+.evaluate_wrap{
+	border-top: 1px solid #eee;
+	width: 94%;
+	margin: 0 auto;
+	line-height: 80px;
+	font-size: 22px;
+	color: #333;
+}
+/*详情开始*/
+.name{
+	overflow: hidden;
+	float: left;
+	margin-left: 40px;
+}
+.name p{
+	color: #666;
+	font-size: 24px;
+}
+.name p:nth-child(1){
+	font-size: 30px;
+	color: #111;
+	margin: 16px 0 23px 0;
+}
+.detail{
+	width: 100%;
+}
+.detail ul{
+	overflow: hidden;
+}
+.detail ul li{
+	width: 94%;
+	border-top: 1px solid #eee;
+	font-size: 24px;
+	position: relative;
+	padding: 15px 0;
+	float: left;
+	margin-left: 20px;
+}
+.detail ul li p{
+	font-size: 22px;
+	color: #858585;
+}
+.detail ul li .yuyue{
+	width: 80px;
+	height: 40px;
+	border-radius: 8px;
+	background:#ffae00;
+	text-align: center;
+	line-height: 40px;
+	font-size: 24px;
+	position: absolute;
+	top: 50%;
+	right: 0;
+	margin-top: -20px;
+	color: #fff;
+}
+.detail ul li .yuyue a{
+	color: #fff;
+}
+.detail ul li:nth-child(6){
+	line-height: 50px;
+	height: 50px;
+}
+.pic_show{
+	width: 90%;
+	margin: 0 auto;
+	font-size: 20px;
+	padding-bottom: 20px;
+}
+.pic_show img{
+	width: 100%;
+	margin-bottom: 20px;
+}
+@media screen and (min-width: 1024px) {
+	body,html{
+		font-size: 60px;
+	}
+	.head {
+		font-size: .32rem;
+		line-height: .80rem;
+	}
+	.head .return{
+		padding-left: .20rem;
+	}
+	.head .return a{
+		width: .20rem;
+		line-height: .80rem;
+	}
+	.head .coll{
+		padding-right: .20rem;
+	}
+	.head .coll img{
+		width: .28rem;
+	}
+	.head img{
+		width: .20rem;
+		margin-top: .21rem;
+	}
+	.coll .coll_collect{
+		margin-top: .13rem;
+	}
+	.collect{
+		width: .28rem;
+		height: .77rem;
+		background: url(../images/collect01.png) 0 center no-repeat;
+		background-size: 64%;
+		line-height: .51rem;
+	}
+	.collect01{
+		background: url(../images/collect.png) 0 center no-repeat;
+		background-size: 64%;
+	}
+	/*图片开始*/
+
+	.pic{
+		padding:.20rem 0;
+	}
+	.pic img{
+		width: 1.50rem;
+		height: 1.50rem;
+	}
+	.evaluate_wrap{
+		line-height: .80rem;
+		font-size: .22rem;
+	}
+	/*详情开始*/
+	.name{
+		margin-left: .40rem;
+	}
+	.name p{
+		font-size: .24rem;
+	}
+	.name p:nth-child(1){
+		font-size: .30rem;
+		margin: .16rem 0 .23rem 0;
+	}
+	.detail ul li{
+		font-size: .24rem;
+		padding: .15rem 0;
+		margin-left: .20rem;
+	}
+	.detail ul li p{
+		font-size: .22rem;
+	}
+	.detail ul li .yuyue{
+		width: .80rem;
+		height: .40rem;
+		border-radius: 0.08rem;
+		line-height: .40rem;
+		font-size: .24rem;
+		margin-top: -0.20rem;
+	}
+	.detail ul li:nth-child(6){
+		line-height: .50rem;
+		height: .50rem;
+	}
+	.pic_show{
+		font-size: .20rem;
+		padding-bottom: .20rem;
+	}
+	.pic_show img{
+		margin-bottom: .20rem;
+	}
+}

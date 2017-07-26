@@ -1,0 +1,101 @@
+.content{
+	font-family: '微软雅黑';
+}
+.head{
+	width:100%;
+	line-height: 50px;
+	border-bottom: 1px solid #ccc;
+	text-align: center;
+	overflow: hidden;
+	font-size: 18px;
+	color: #333;
+	height: 50px;
+	background: #fff;
+}
+.head a{
+	padding-top: 6px;
+    padding-left: 20px;
+    float: left;
+}
+.orderde_nav{
+	
+	width: 100%;
+}
+.order_site{
+	width: 100%;
+	background: #fff;
+}
+.ordersite_de{
+	overflow: hidden;
+	width: 90%;
+	margin: 20px auto 0;
+	padding: 12px 0;
+}
+.ordersite_de img{
+	float: left;
+	width: 103px;
+	border-radius: 8px;
+	margin-right: 20px;
+}
+.ordersite_de div{
+	float: left;
+}
+.ordersite_de h3,p{
+	font-size: 24px;
+	font-weight: normal;
+}
+.ordersite_de h3{
+	margin-bottom: 13px;
+}
+.order_site ul{
+	width: 100%;
+	border-top: 1px solid #ccc;
+	color: #666;
+}
+.order_site ul span,b,i{
+	font-size: 24px;
+}
+.order_site ul span,b{
+	float: left;
+}
+.order_site ul li{
+	padding: 10px 31px;
+	border-bottom: 1px solid #ccc;
+	overflow: hidden;
+}
+.order_site ul li b{
+	padding-left: 53px;
+}
+.order_site ul li i{
+	float: right;
+	color: #fec240;
+}
+.order_time{
+	width: 100%;
+	background: #fff;
+	margin-top: 20px;
+	font-size: 24px;
+	color: #666;
+}
+.order_time li{
+	padding: 10px 31px;
+	border-bottom: 1px solid #ccc;
+	overflow: hidden;
+}
+.order_time span{
+	float: left;
+}
+.order_btn{
+	width: 130px;
+	height: 50px;
+	background: #fcc03f;
+	text-align: center;
+	line-height: 50px;
+	border-radius: 5px;
+	float: right;
+	margin: 30px 20px 0 0;
+}
+.order_btn a{
+	color: #fff;
+	font-size: 24px;
+}

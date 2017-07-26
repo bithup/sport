@@ -1,0 +1,167 @@
+body{
+	background: #fff!important;
+}
+.content{
+	font-family:"微软雅黑";
+}
+.head{
+	width:100%;
+	line-height: 80px;
+	border-bottom: 1px solid #ccc;
+	text-align: center;
+	overflow: hidden;
+	font-size: 32px;
+	color: #333;
+}
+.head a{
+    padding-left: 20px;
+    float: left;
+}
+.head a img{
+	width: 20px;
+	margin-top: 20px;
+}
+.pic_1{
+	width: 90%;
+	margin: 0 auto;
+	padding: 20px 0;
+	overflow: hidden;
+
+}
+.pic_1 h3 img{
+	width: 150px;
+	height: 150px;
+}
+.pic h3{
+	float: left;
+}
+
+.pic .font{
+	float: left;
+	padding-left: 20px;
+
+}
+
+.pic .font p span{
+	width:30px;
+	line-height: 30px;
+	background: #5ae10d;
+	border-radius: 6px;
+	text-align: center;
+	color: #fff;
+	font-size: 22px;
+	display: block;
+	float: right;
+	margin-right: 20px;
+}
+.pic .font p{
+padding: 5px 0;
+font-size: 24px;
+color: #666;
+}
+.pic .font .b{
+	font-size: 24px;
+	color: #333;
+}
+.course ul li{
+border-bottom: 1px solid #ccc;
+text-indent: 20px;
+color: #333;
+font-size: 24px;
+padding: 20px 0;
+}
+.course ul .sbj{
+	border-top: 1px solid #ccc;
+}
+.course ul li span{
+	color: #333;
+	font-size: 24px;
+	display: block;
+	width: 95%;
+	margin: 0 auto;
+	text-indent: 0;
+}
+.course ul li span input{
+	line-height: 60px;
+}
+.course ul li i{
+	color: #ffa104;
+	padding-left: 20px;
+}
+.button{
+	width: 80%;
+	line-height: 80px;
+	text-align: center;
+	background: #ffa104;
+	color: #fff;
+	border-radius: 5px;
+	margin: 57px auto;
+	font-size: 30px;
+	cursor: pointer;
+}
+.button a{
+	color: #fff;
+}
+@media screen and (min-width: 1024px) {
+	body,html{
+		font-size: 60px;
+	}
+	.head{
+		line-height: .80rem;
+		font-size: .32rem;
+	}
+	.head a{
+		padding-left: .20rem;
+	}
+	.head a img{
+		width: .20rem;
+		margin-top: .20rem;
+	}
+	.pic_1{
+		padding: .20rem 0;
+		width: 95%;
+	}
+	.pic_1 h3 img{
+		width: 1.50rem;
+		height: 1.50rem;
+	}
+
+	.pic .font{
+		padding-left: .20rem;
+	}
+
+	.pic .font p span{
+		width:.30rem;
+		line-height: .30rem;
+		border-radius: 0.06rem;
+		font-size: .22rem;
+		margin-right: .20rem;
+	}
+	.pic .font p{
+		padding: 0.05rem 0;
+		font-size: .24rem;
+	}
+	.pic .font .b{
+		font-size: .24rem;
+	}
+	.course ul li{
+		text-indent: .20rem;
+		font-size: .24rem;
+		padding: .20rem 0;
+	}
+	.course ul li span{
+		font-size: .24rem;
+	}
+	.course ul li span input{
+		line-height: .60rem;
+	}
+	.course ul li i{
+		padding-left: .20rem;
+	}
+	.button{
+		line-height: .80rem;
+		border-radius: 0.05rem;
+		margin: .57rem auto;
+		font-size: .30rem;
+	}
+}

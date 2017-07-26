@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xgh.sportsite.dao.write.IZoneDaoW">
+
+	<resultMap type="com.xgh.sportsite.entity.Zone" id="zoneMap">
+		<result property="id" column="id" javaType="long" jdbcType="BIGINT" />
+		<result property="nid" column="nid" javaType="long" jdbcType="BIGINT" />
+		<result property="code" column="code" javaType="string" jdbcType="VARCHAR" />
+		<result property="name" column="name" javaType="string" jdbcType="VARCHAR" />
+		<result property="pid" column="pid" javaType="string" jdbcType="VARCHAR" />
+		<result property="pcode" column="pcode" javaType="string" jdbcType="VARCHAR" />
+		<result property="preFix" column="pre_fix" javaType="string" jdbcType="VARCHAR" />
+		<result property="level" column="level" javaType="string" jdbcType="VARCHAR" />
+		<result property="isLast" column="is_last" javaType="string" jdbcType="VARCHAR" />
+		<result property="longitude" column="longitude" javaType="double" jdbcType="DOUBLE" />
+		<result property="latitude" column="latitude" javaType="double" jdbcType="DOUBLE" />
+		<result property="location" column="location" javaType="string" jdbcType="VARCHAR" />
+		<result property="spellName" column="spell_name" javaType="string" jdbcType="VARCHAR" />
+		<result property="firSpellName" column="fir_spell_name" javaType="string" jdbcType="VARCHAR" />
+		<result property="ord" column="ord" javaType="long" jdbcType="BIGINT" />
+		<result property="createDate" column="create_date" javaType="date" jdbcType="TIMESTAMP" />
+		<result property="updateDate" column="update_date" javaType="date" jdbcType="TIMESTAMP" />
+		<result property="status" column="status" javaType="int" jdbcType="INTEGER" />
+		<result property="remark" column="remark" javaType="string" jdbcType="VARCHAR" />
+	</resultMap>
+	
+	<insert id="add" parameterType="com.xgh.sportsite.entity.Zone">
+		<selectKey keyProperty="id" resultType="long" order="AFTER"> 
+			SELECT max(id)  AS value  from tb_zone 
+		</selectKey>  
+		insert into tb_zone
+		(
+		nid,
+		code,
+		name,
+		pid,
+		pcode,
+		pre_fix,
+		level,
+		is_last,
+		longitude,
+		latitude,
+		location,
+		spell_name,
+		fir_spell_name,
+		ord,
+		create_date,
+		update_date,
+		status,
+		remark
+		)
+		values (
+		#{nid,jdbcType=BIGINT},
+		#{code,jdbcType=VARCHAR},
+		#{name,jdbcType=VARCHAR},
+		#{pid,jdbcType=VARCHAR},
+		#{pcode,jdbcType=VARCHAR},
+		#{preFix,jdbcType=VARCHAR},
+		#{level,jdbcType=VARCHAR},
+		#{isLast,jdbcType=VARCHAR},
+		#{longitude,jdbcType=DOUBLE},
+		#{latitude,jdbcType=DOUBLE},
+		#{location,jdbcType=VARCHAR},
+		#{spellName,jdbcType=VARCHAR},
+		#{firSpellName,jdbcType=VARCHAR},
+		#{ord,jdbcType=BIGINT},
+		#{createDate,jdbcType=TIMESTAMP},
+		#{updateDate,jdbcType=TIMESTAMP},
+		#{status,jdbcType=INTEGER},
+		#{remark,jdbcType=VARCHAR}
+		)
+	</insert>
+	
+	<insert id="addBatch" parameterType="com.xgh.sportsite.entity.Zone">
+		insert into tb_zone
+		(
+		nid,
+		code,
+		name,
+		pid,
+		pcode,
+		pre_fix,
+		level,
+		is_last,
+		longitude,
+		latitude,
+		location,
+		spell_name,
+		fir_spell_name,
+		ord,
+		create_date,
+		update_date,
+		status,
+		remark
+		)
+		values 
+		<foreach collection="list" item="item" separator=",">
+			(
+			#{item.nid,jdbcType=BIGINT},
+			#{item.code,jdbcType=VARCHAR},
+			#{item.name,jdbcType=VARCHAR},
+			#{item.pid,jdbcType=VARCHAR},
+			#{item.pcode,jdbcType=VARCHAR},
+			#{item.preFix,jdbcType=VARCHAR},
+			#{item.level,jdbcType=VARCHAR},
+			#{item.isLast,jdbcType=VARCHAR},
+			#{item.longitude,jdbcType=DOUBLE},
+			#{item.latitude,jdbcType=DOUBLE},
+			#{item.location,jdbcType=VARCHAR},
+			#{item.spellName,jdbcType=VARCHAR},
+			#{item.firSpellName,jdbcType=VARCHAR},
+			#{item.ord,jdbcType=BIGINT},
+			#{item.createDate,jdbcType=TIMESTAMP},
+			#{item.updateDate,jdbcType=TIMESTAMP},
+			#{item.status,jdbcType=INTEGER},
+			#{item.remark,jdbcType=VARCHAR}
+			)
+		</foreach>
+	</insert>
+
+	<update id="update" parameterType="com.xgh.sportsite.entity.Zone">
+		update tb_zone
+		set
+		nid = #{nid,jdbcType=BIGINT},
+		code = #{code,jdbcType=VARCHAR},
+		name = #{name,jdbcType=VARCHAR},
+		pid = #{pid,jdbcType=VARCHAR},
+		pcode = #{pcode,jdbcType=VARCHAR},
+		pre_fix = #{preFix,jdbcType=VARCHAR},
+		level = #{level,jdbcType=VARCHAR},
+		is_last = #{isLast,jdbcType=VARCHAR},
+		longitude = #{longitude,jdbcType=DOUBLE},
+		latitude = #{latitude,jdbcType=DOUBLE},
+		location = #{location,jdbcType=VARCHAR},
+		spell_name = #{spellName,jdbcType=VARCHAR},
+		fir_spell_name = #{firSpellName,jdbcType=VARCHAR},
+		ord = #{ord,jdbcType=BIGINT},
+		create_date = #{createDate,jdbcType=TIMESTAMP},
+		update_date = #{updateDate,jdbcType=TIMESTAMP},
+		status = #{status,jdbcType=INTEGER},
+		remark = #{remark,jdbcType=VARCHAR}
+		where id = #{id}
+	</update>
+
+	<delete id="deleteById" parameterType="long">
+		delete from
+		tb_zone
+		where
+		id = #{id} 
+	</delete>
+</mapper>

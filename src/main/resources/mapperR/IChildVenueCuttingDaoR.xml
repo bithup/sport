@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+		"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xgh.sportsite.dao.read.IChildVenueCuttingDaoR">
+
+	<!--ʵ��ӳ��-->
+	<resultMap id="childVenueCuttingMap" type="com.xgh.sportsite.entity.ChildVenueCutting">
+		<!--主键id-->
+		<id property="id" column="id" javaType="Long" />
+		<!--分场馆id-->
+		<result property="childVenueId" column="child_venue_id" javaType="long" jdbcType="BIGINT" />
+		<!--订单id-->
+		<result property="orderId" column="order_id" javaType="long" jdbcType="BIGINT" />
+		<!--时间段-->
+		<result property="timePeriod" column="time_period" javaType="String" jdbcType="VARCHAR" />
+		<!--状态（-1：删除  0：空闲  1：已预订）-->
+		<result property="status" column="status" javaType="int" jdbcType="INTEGER" />
+		<!--开始时间（日期）-->
+		<result property="startDate" column="start_date" javaType="Date" jdbcType="TIMESTAMP" />
+		<!--结束时间（暂不使用）-->
+		<result property="endDate" column="end_date" javaType="Date" jdbcType="TIMESTAMP" />
+		<!--创建时间-->
+		<result property="createDate" column="create_date" javaType="Date" jdbcType="TIMESTAMP" />
+		<!--修改时间-->
+		<result property="updateDate" column="update_date" javaType="Date" jdbcType="TIMESTAMP" />
+		<!--排序-->
+		<result property="ord" column="ord" javaType="long" jdbcType="BIGINT" />
+		<!--备用字段1-->
+		<result property="data1" column="data_1" javaType="String" jdbcType="VARCHAR" />
+		<!--备用字段2-->
+		<result property="data2" column="data_2" javaType="long" jdbcType="BIGINT" />
+		<!--备用字段3-->
+		<result property="data3" column="data_3" javaType="int" jdbcType="INTEGER" />
+		<!--备用字段4-->
+		<result property="data4" column="data_4" javaType="Double" jdbcType="DOUBLE" />
+	</resultMap>
+
+
+	<sql id="Base_Column_List">
+		id,	child_venue_id,	order_id,	time_period,	status,	start_date,	end_date,	create_date,	update_date,	ord,	data_1,	data_2,	data_3,	data_4
+	</sql>
+
+	<select id="get" resultMap="childVenueCuttingMap" parameterType="java.lang.Long">
+		SELECT
+		<include refid="Base_Column_List" />
+		FROM tb_child_venue_cutting
+		WHERE id = #{id}
+	</select>
+
+	<select id="getByVenueId" parameterType="hashmap" resultType="hashmap">
+		SELECT
+		cvt.id,
+		cvt.child_venue_id AS childVenueId,
+		cvt.order_id AS orderId,
+		cvt.time_period AS timePeriod
+		FROM
+		tb_child_venue_cutting cvt
+		LEFT JOIN tb_order o ON cvt.order_id = o.id
+		WHERE
+		o.`status` >= 0
+		AND o.order_status > 0
+		AND cvt.child_venue_id = #{childVenueId}
+		AND cvt.start_date = #{selectDate}
+		ORDER BY
+		cvt.time_period + 0
+	</select>
+
+	<select id="getByOrderId" parameterType="hashmap" resultType="hashmap">
+		SELECT
+		cvt.id,
+		cvt.child_venue_id AS childVenueId,
+		cvt.order_id AS orderId,
+		cvt.time_period AS timePeriod
+		FROM
+		tb_child_venue_cutting cvt
+		WHERE
+		cvt.child_venue_id = #{childVenueId}
+		AND cvt.start_date = #{selectDate}
+		AND cvt.order_id = #{orderId}
+		ORDER BY cvt.time_period+0
+	</select>
+
+
+	<select id="getAlreadyPay" parameterType="hashmap" resultType="String">
+		SELECT
+			GROUP_CONCAT(c.time_period)
+		FROM
+			tb_child_venue_cutting c
+		LEFT JOIN tb_order o ON c.order_id = o.id
+		WHERE
+			c.child_venue_id = #{childVenueId}
+		AND c.start_date = #{selectDate}
+		AND o.order_status >= 1
+		AND o.is_refund = 0
+	</select>
+
+
+</mapper>

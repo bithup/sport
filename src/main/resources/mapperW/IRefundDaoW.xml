@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xgh.sportsite.dao.write.IRefundDaoW">
+
+	<resultMap id="refundMap" type="com.xgh.sportsite.entity.Refund">
+		<!--主键id-->
+		<id property="id" column="id" javaType="Long" />
+		<!--用户id-->
+		<result property="memberId" column="member_id" javaType="long" jdbcType="BIGINT" />
+		<!--订单id-->
+		<result property="orderId" column="order_id" javaType="long" jdbcType="BIGINT" />
+		<!--订单编号-->
+		<result property="orderNo" column="order_no" javaType="String" jdbcType="VARCHAR" />
+		<!--退款原因-->
+		<result property="reason" column="reason" javaType="String" jdbcType="VARCHAR" />
+		<!--退款金额-->
+		<result property="refunndMoney" column="refunnd_money" javaType="Double" jdbcType="DOUBLE" />
+		<!--退款批次号-->
+		<result property="batchNo" column="batch_no" javaType="String" jdbcType="VARCHAR" />
+		<!--退款状态（0：未退款 1：成功  2：失败）-->
+		<result property="status" column="status" javaType="int" jdbcType="INTEGER" />
+		<!--退款时间-->
+		<result property="refundTime" column="refund_time" javaType="Date" jdbcType="TIMESTAMP" />
+		<!--申请时间-->
+		<result property="createTime" column="create_time" javaType="Date" jdbcType="TIMESTAMP" />
+		<!--修改时间-->
+		<result property="updateTime" column="update_time" javaType="Date" jdbcType="TIMESTAMP" />
+		<!--备用字段1-->
+		<result property="data1" column="data_1" javaType="String" jdbcType="VARCHAR" />
+		<!--备用字段2-->
+		<result property="data2" column="data_2" javaType="long" jdbcType="BIGINT" />
+		<!--备用字段3-->
+		<result property="data3" column="data_3" javaType="int" jdbcType="INTEGER" />
+		<!--备用字段4-->
+		<result property="data4" column="data_4" javaType="Double" jdbcType="DOUBLE" />
+	</resultMap>
+
+	<delete id="delete" parameterType="java.lang.Long">
+		 DELETE FROM tb_refund
+		 WHERE id = #{id}
+	</delete>
+
+	<insert id="insert" parameterType="com.xgh.sportsite.entity.Refund">
+		 INSERT INTO tb_refund
+ 		(id,member_id,order_id,order_no,reason,refunnd_money,batch_no,status,refund_time,create_time,update_time,data_1,data_2,data_3,data_4) 
+		 VALUES 
+ 		(#{id},#{memberId},#{orderId},#{orderNo},#{reason},#{refunndMoney},#{batchNo},#{status},#{refundTime},#{createTime},#{updateTime},#{data1},#{data2},#{data3},#{data4}) 
+	</insert>
+
+
+	<update id="updateById" parameterType="com.xgh.sportsite.entity.Refund">
+		 UPDATE tb_refund
+ 		 <set> 
+			<if test="memberId != null">
+				 member_id = #{memberId},
+			</if>
+			<if test="orderId != null">
+				 order_id = #{orderId},
+			</if>
+			<if test="orderNo != null">
+				 order_no = #{orderNo},
+			</if>
+			<if test="reason != null">
+				 reason = #{reason},
+			</if>
+			<if test="refunndMoney != null">
+				 refunnd_money = #{refunndMoney},
+			</if>
+			<if test="batchNo != null">
+				 batch_no = #{batchNo},
+			</if>
+			<if test="status != null">
+				 status = #{status},
+			</if>
+			<if test="refundTime != null">
+				 refund_time = #{refundTime},
+			</if>
+			<if test="createTime != null">
+				 create_time = #{createTime},
+			</if>
+			<if test="updateTime != null">
+				 update_time = #{updateTime},
+			</if>
+			<if test="data1 != null">
+				 data_1 = #{data1},
+			</if>
+			<if test="data2 != null">
+				 data_2 = #{data2},
+			</if>
+			<if test="data3 != null">
+				 data_3 = #{data3},
+			</if>
+			<if test="data4 != null">
+				 data_4 = #{data4},
+			</if>
+
+ 		 </set>
+		 WHERE id = #{id}
+	</update>
+
+	<update id="update" parameterType="com.xgh.sportsite.entity.Refund">
+		 UPDATE tb_refund
+		 SET 
+			 member_id = #{memberId},
+			 order_id = #{orderId},
+			 order_no = #{orderNo},
+			 reason = #{reason},
+			 refunnd_money = #{refunndMoney},
+			 batch_no = #{batchNo},
+			 status = #{status},
+			 refund_time = #{refundTime},
+			 create_time = #{createTime},
+			 update_time = #{updateTime},
+			 data_1 = #{data1},
+			 data_2 = #{data2},
+			 data_3 = #{data3},
+			 data_4 = #{data4}
+		 WHERE id = #{id}
+	</update>
+
+</mapper>

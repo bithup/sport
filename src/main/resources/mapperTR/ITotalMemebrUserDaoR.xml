@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xgh.sportsite.dao.readTR.ITotalMemebrUserDaoR">
+
+    <!--实体映射-->
+    <resultMap id="totalMemebrUser" type="com.xgh.sportsite.entity.TotalMemebrUser">
+        <!---->
+        <id property="id" column="id" javaType="Long"/>
+        <!--登录账号-->
+        <result property="account" column="account" javaType="String" jdbcType="VARCHAR"/>
+        <!--用户密码-->
+        <result property="password" column="password" javaType="String" jdbcType="VARCHAR"/>
+        <!--通过哪个平台注册的1.教育2商城3运动4蓝天绿水5招聘6跑腿-->
+        <result property="type" column="type" javaType="int" jdbcType="INTEGER"/>
+        <!--冗余字段1-->
+        <result property="data1" column="data_1" javaType="String" jdbcType="VARCHAR"/>
+        <!--冗余字段2-->
+        <result property="data2" column="data_2" javaType="String" jdbcType="VARCHAR"/>
+        <!---->
+        <result property="createDate" column="create_date" javaType="Date" jdbcType="TIMESTAMP"/>
+        <!---->
+        <result property="updateDate" column="update_date" javaType="Date" jdbcType="TIMESTAMP"/>
+        <!---->
+        <result property="status" column="status" javaType="int" jdbcType="INTEGER"/>
+    </resultMap>
+
+
+    <sql id="Base_Column_List">
+        id,	account,	password,	type,	data_1,	data_2,	create_date,	update_date,	status
+    </sql>
+
+
+    <select id="get" resultMap="totalMemebrUser" parameterType="java.lang.Long">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM tb_total_memebr_user
+        WHERE id = #{id}
+        and status=1
+    </select>
+
+    <select id="login" resultMap="totalMemebrUser" parameterType="string">
+        SELECT
+        *
+        FROM tb_total_memebr_user
+        WHERE account = #{account}
+        and status=1
+    </select>
+
+
+</mapper>

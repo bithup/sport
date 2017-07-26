@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xgh.sportsite.dao.read.IOrderDaoR">
+
+	<resultMap id="orderMap" type="com.xgh.sportsite.entity.Order">
+		<!--主键id-->
+		<id property="id" column="id" javaType="Long" />
+		<!--订单人id-->
+		<result property="memberId" column="member_id" javaType="long" jdbcType="BIGINT" />
+		<!--订单编号-->
+		<result property="orderNo" column="order_no" javaType="String" jdbcType="VARCHAR" />
+		<!--下单操作客户端类型（IOS、安卓、PC）-->
+		<result property="orderOs" column="order_os" javaType="String" jdbcType="VARCHAR" />
+		<!--联系人-->
+		<result property="contact" column="contact" javaType="String" jdbcType="VARCHAR" />
+		<!--联系电话-->
+		<result property="telephone" column="telephone" javaType="String" jdbcType="VARCHAR" />
+		<!--类型（0：场馆  1：教练  2：活动）-->
+		<result property="orderType" column="order_type" javaType="int" jdbcType="INTEGER" />
+		<!--商品id-->
+		<result property="goodsId" column="goods_id" javaType="String" jdbcType="VARCHAR" />
+		<!--商品名称-->
+		<result property="goodsName" column="goods_name" javaType="String" jdbcType="VARCHAR" />
+		<!--订单总金额-->
+		<result property="orderAmount" column="order_amount" javaType="Double" jdbcType="DOUBLE" />
+		<!--商品开始时间-->
+		<result property="beginDate" column="begin_date" javaType="Date" jdbcType="TIMESTAMP" />
+		<!--商品结束时间-->
+		<result property="endDate" column="end_date" javaType="Date" jdbcType="TIMESTAMP" />
+		<!--支付方式（0：支付宝  1：微信  2：银行卡）-->
+		<result property="payAccount" column="pay_account" javaType="int" jdbcType="INTEGER" />
+		<!--交易号-->
+		<result property="tradeNo" column="trade_no" javaType="String" jdbcType="VARCHAR" />
+		<!--交易扩展信息1-->
+		<result property="tradeData1" column="trade_data1" javaType="String" jdbcType="VARCHAR" />
+		<!--交易扩展信息2-->
+		<result property="tradeData2" column="trade_data2" javaType="long" jdbcType="BIGINT" />
+		<!--交易扩展信息3-->
+		<result property="tradeData3" column="trade_data3" javaType="int" jdbcType="INTEGER" />
+		<!--付款时间-->
+		<result property="payTime" column="pay_time" javaType="Date" jdbcType="TIMESTAMP" />
+		<!--是否已退款（0：未退款  1：已退款）-->
+		<result property="isRefund" column="is_refund" javaType="int" jdbcType="INTEGER" />
+		<!--订单状态（0：待支付  1：已支付  2：待评价  3：已完成）-->
+		<result property="orderStatus" column="order_status" javaType="int" jdbcType="INTEGER" />
+		<!--创建时间-->
+		<result property="createDate" column="create_date" javaType="Date" jdbcType="TIMESTAMP" />
+		<!--修改时间-->
+		<result property="updateDate" column="update_date" javaType="Date" jdbcType="TIMESTAMP" />
+		<!--状态（-1：已删除  0：正常  1：未删除）-->
+		<result property="status" column="status" javaType="int" jdbcType="INTEGER" />
+		<!--备用字段1-->
+		<result property="data1" column="data_1" javaType="String" jdbcType="VARCHAR" />
+		<!--备用字段2-->
+		<result property="data2" column="data_2" javaType="String" jdbcType="VARCHAR" />
+		<!--备用字段3-->
+		<result property="data3" column="data_3" javaType="String" jdbcType="VARCHAR" />
+		<!--卖家id（场馆存总场馆id,教练存教练id，活动存空）-->
+		<result property="data4" column="data_4" javaType="long" jdbcType="BIGINT" />
+		<!--备用字段5-->
+		<result property="data5" column="data_5" javaType="long" jdbcType="BIGINT" />
+		<!--备用字段6-->
+		<result property="data6" column="data_6" javaType="long" jdbcType="BIGINT" />
+		<!--备用字段7-->
+		<result property="data7" column="data_7" javaType="int" jdbcType="INTEGER" />
+		<!--备用字段8-->
+		<result property="data8" column="data_8" javaType="int" jdbcType="INTEGER" />
+		<!--备用字段9-->
+		<result property="data9" column="data_9" javaType="int" jdbcType="INTEGER" />
+		<!--备用字段10-->
+		<result property="data10" column="data_10" javaType="Double" jdbcType="DOUBLE" />
+		<!--备用字段11-->
+		<result property="data11" column="data_11" javaType="Double" jdbcType="DOUBLE" />
+	</resultMap>
+
+    <select id="getIdByOrderNo" parameterType="hashmap" resultType="hashmap">
+        select
+        id as orderId,
+        order_amount as orderAmount
+        FROM
+        tb_order orderT
+        WHERE
+        order_no=#{orderNo}
+        AND
+        orderT.status=1
+    </select>
+
+    <sql id="Base_Column_List">
+		 id,	member_id,	order_no,	order_os,	contact,	telephone,	order_type,	goods_id,	goods_name,	order_amount,	begin_date,	end_date,	pay_account,	trade_no,	trade_data1,	trade_data2,	trade_data3,	pay_time,	is_refund,	order_status,	create_date,	update_date,	status,	data_1,	data_2,	data_3,	data_4,	data_5,	data_6,	data_7,	data_8,	data_9,	data_10,	data_11
+	</sql>
+
+    <select id="get" resultMap="orderMap" parameterType="java.lang.Long">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM tb_order
+        WHERE id = #{id}
+    </select>
+
+    <select id="getActivityCount" resultType="long" parameterType="hashmap">
+		SELECT
+		count(id) as count
+		FROM tb_order
+		WHERE
+		member_id=#{memberId}
+		AND
+		goods_id=#{goodsId}
+		AND
+		status=1
+	</select>
+
+    <select id="getActivitySignDetail" resultType="hashmap" parameterType="hashmap">
+        SELECT
+        memUser.id as memberId,
+	    memUser.head_path as headPath,
+        orderG.contact as contact,
+        orderG.telephone,
+        orderG.create_date as createDate
+        FROM
+	    tb_order orderG LEFT JOIN
+        tb_member_user memUser
+        on orderG.member_id=memUser.id
+        WHERE
+	    orderG.data_4 = #{memberId}
+        AND orderG.goods_id = #{goodsId}
+        AND orderG.status = 1
+    </select>
+
+
+	<select id="getListPage" parameterType="hashmap" resultMap="orderMap">
+		SELECT
+		o.id,
+		o.member_id,
+		o.order_no,
+		o.contact,
+		o.telephone,
+		o.order_type,
+		o.goods_id,
+		o.goods_name,
+		o.order_amount,
+		o.trade_no,
+		o.pay_time,
+		o.is_refund,
+		o.order_status,
+		o.create_date,
+		o.`status`,
+		o.data_3,
+		o.begin_date
+		FROM
+		tb_order o
+		WHERE
+		o.`status` >= 0
+		<if test="memberId != null and ''!=memberId">
+			AND o.member_id = #{memberId}
+		</if>
+		<if test="shopId != null and ''!=shopId">
+			AND o.data_4= #{shopId}
+		</if>
+		<if test="orderStatus != null and ''!=orderStatus">
+			AND o.order_status = #{orderStatus}
+		</if>
+		ORDER BY o.create_date DESC
+		limit ${(page-1)*pagesize},${pagesize}
+	</select>
+	<select id="getAcountByGoodsId" parameterType="hashmap" resultType="int">
+		SELECT
+		count(id) as count
+		FROM tb_order
+		WHERE
+		order_type = #{orderType}
+		AND
+		goods_id=#{goodsId}
+		AND order_status > 0
+	</select>
+
+</mapper>

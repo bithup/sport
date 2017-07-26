@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xgh.sportsite.dao.read.IActivityDaoR">
+
+    <!--实体映射-->
+    <resultMap id="activity" type="com.xgh.sportsite.entity.Activity">
+        <!--唯一标示-->
+        <id property="id" column="id" javaType="Long"/>
+        <!--代理id-->
+        <result property="unitId" column="unit_id" javaType="long" jdbcType="BIGINT"/>
+        <!--创建人id-->
+        <result property="userId" column="user_id" javaType="long" jdbcType="BIGINT"/>
+        <!--活动名称-->
+        <result property="activityName" column="activity_name" javaType="String" jdbcType="VARCHAR"/>
+        <!--活动类型（0：个人  1：团体）-->
+        <result property="activityType" column="activity_type" javaType="int" jdbcType="INTEGER"/>
+        <!--活动主办方-->
+        <result property="activityOrganizer" column="activity_organizer" javaType="String" jdbcType="VARCHAR"/>
+        <!--活动人数-->
+        <result property="activityCount" column="activity_count" javaType="int" jdbcType="INTEGER"/>
+        <!--活动地点-->
+        <result property="activityAddress" column="activity_address" javaType="String" jdbcType="VARCHAR"/>
+        <!--活动运动项id-->
+        <result property="sportId" column="sport_id" javaType="long" jdbcType="BIGINT"/>
+        <!--活动场馆id-->
+        <result property="venueId" column="venue_id" javaType="long" jdbcType="BIGINT"/>
+        <!--活动费用-->
+        <result property="activityPrice" column="activity_price" javaType="Double" jdbcType="DOUBLE"/>
+        <!--活动介绍-->
+        <result property="activityIntroduce" column="activity_introduce" javaType="String" jdbcType="VARCHAR"/>
+        <!--活动联系人-->
+        <result property="activityContacts" column="activity_contacts" javaType="String" jdbcType="VARCHAR"/>
+        <!--活动联系人电话-->
+        <result property="contactsPhone" column="contacts_phone" javaType="String" jdbcType="VARCHAR"/>
+        <!--活动图片路径-->
+        <result property="activityPath" column="activity_path" javaType="String" jdbcType="VARCHAR"/>
+        <!--活动图片绝对路径-->
+        <result property="activityRealPath" column="activity_real_path" javaType="String" jdbcType="VARCHAR"/>
+        <!--活动申明-->
+        <result property="declares" column="declares" javaType="String" jdbcType="VARCHAR"/>
+        <!--是否加入热门活动（0：否  1：是）-->
+        <result property="isRecommend" column="is_recommend" javaType="int" jdbcType="INTEGER"/>
+        <!--收费方式（0：收费  1：免费  2：AA制）-->
+        <result property="isFree" column="is_free" javaType="int" jdbcType="INTEGER"/>
+        <!--活动开始时间-->
+        <result property="startDate" column="start_date" javaType="Date" jdbcType="TIMESTAMP"/>
+        <!--活动结束日期-->
+        <result property="endDate" column="end_date" javaType="Date" jdbcType="TIMESTAMP"/>
+        <!--活动报名截止日期-->
+        <result property="enrollDate" column="enroll_date" javaType="Date" jdbcType="TIMESTAMP"/>
+        <!--创建时间-->
+        <result property="createDate" column="create_date" javaType="Date" jdbcType="TIMESTAMP"/>
+        <!--修改时间-->
+        <result property="updateDate" column="update_date" javaType="Date" jdbcType="TIMESTAMP"/>
+        <!--排序-->
+        <result property="ord" column="ord" javaType="int" jdbcType="INTEGER"/>
+        <!--是否通过审核（0：未审核  1：通过  2：未通过）-->
+        <result property="isCheck" column="is_check" javaType="int" jdbcType="INTEGER"/>
+        <!--状态（-1：已删除  0：正常  1：未删除）-->
+        <result property="status" column="status" javaType="int" jdbcType="INTEGER"/>
+        <!--区域id-->
+        <result property="data1" column="data_1" javaType="long" jdbcType="BIGINT"/>
+        <!--备用字段2-->
+        <result property="data2" column="data_2" javaType="long" jdbcType="BIGINT"/>
+        <!--备用字段3-->
+        <result property="data3" column="data_3" javaType="long" jdbcType="BIGINT"/>
+        <!--备用字段4-->
+        <result property="data4" column="data_4" javaType="Double" jdbcType="DOUBLE"/>
+        <!--备用字段5-->
+        <result property="data5" column="data_5" javaType="Double" jdbcType="DOUBLE"/>
+        <!--备用字段6-->
+        <result property="data6" column="data_6" javaType="int" jdbcType="INTEGER"/>
+        <!--备用字段7-->
+        <result property="data7" column="data_7" javaType="int" jdbcType="INTEGER"/>
+        <!--备用字段8-->
+        <result property="data8" column="data_8" javaType="int" jdbcType="INTEGER"/>
+        <!--区域编码-->
+        <result property="data9" column="data_9" javaType="String" jdbcType="VARCHAR"/>
+        <!--备用字段10-->
+        <result property="data10" column="data_10" javaType="String" jdbcType="VARCHAR"/>
+        <!--备用字段11-->
+        <result property="data11" column="data_11" javaType="String" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <select id="get" resultMap="activity" parameterType="java.lang.Long">
+        SELECT
+        *
+        FROM tb_activity
+        WHERE id = #{id}
+    </select>
+
+
+    <select id="getRecommendActivity" resultType="hashmap" parameterType="hashmap">
+        SELECT
+            a.id,
+            a.activity_name AS activityName,
+            a.activity_price AS activityPrice,
+            a.activity_address AS activityAddress,
+            a.activity_path AS activityPath,
+            a.activity_real_path AS activityRealPath,
+            a.activity_type AS activityType,
+            a.is_free AS isFree,
+            a.sport_id AS sportId,
+            z.`name` AS zoneName,
+            k.`name` AS sportName
+        FROM
+            tb_activity a
+        LEFT JOIN tb_zone z ON a.data_1 = z.id
+        LEFT JOIN tb_kinds k ON a.sport_id = k.id
+        WHERE
+            LOCATE(a.data_1 , (
+                SELECT
+                    GROUP_CONCAT(z.id)
+                FROM
+                    tb_zone z
+                WHERE
+                    z.pid = (
+                                SELECT
+                                    z.id
+                                FROM
+                                    tb_zone z
+                                WHERE
+                                    z.NAME LIKE '%${zoneName}%'
+                            )
+            ))>0
+        AND a.`status` = 1
+        AND a.is_check = 1
+        AND a.is_recommend = #{isRecommend}
+        LIMIT 5
+    </select>
+
+
+    <select id="getActivityBySportId" resultType="hashmap" parameterType="hashmap">
+        SELECT
+            a.id,
+            a.activity_name AS activityName,
+            a.activity_price AS activityPrice,
+            a.activity_address AS activityAddress,
+            a.activity_path AS activityPath,
+            a.activity_real_path AS activityRealPath,
+            a.activity_type AS activityType,
+            a.is_free AS isFree,
+            a.start_date AS startDate,
+            a.end_date AS endDate,
+            a.sport_id AS sportId,
+            z.`name` AS zoneName,
+            k.`name` AS sportName
+        FROM
+            tb_activity a
+        LEFT JOIN tb_zone z ON a.data_1 = z.id
+        LEFT JOIN tb_kinds k ON a.sport_id = k.id
+        WHERE
+        a.status=1
+        AND a.is_check = 1
+        <if test="sportId!=null and sportId!=''">
+            AND a.sport_id = #{sportId}
+        </if>
+        ORDER BY a.create_date DESC
+        limit ${(page-1)*pageSize},${pageSize}
+    </select>
+
+
+    <select id="getPublishActivity" resultType="hashmap" parameterType="hashmap">
+        SELECT
+        activity.id as activeId,
+        activity.activity_name as activityName,
+        activity.activity_path as activityPath,
+        mem.nick_name as nickName
+        FROM
+        tb_activity activity ,
+        tb_member_user mem
+        WHERE
+        activity.user_id = #{memberId}
+        AND
+        activity.user_id=mem.id
+        and
+        activity.status=1
+    </select>
+
+
+    <select id="getActivityIndexResearch" resultType="hashmap" parameterType="hashmap">
+        SELECT
+        a.id,
+        a.activity_real_path AS activityRealPath,
+        a.activity_name AS activityName,
+        a.activity_price AS salesPrice,
+        a.is_free AS isFree,
+        z.`name` AS zoneName
+        FROM
+        tb_activity a
+        LEFT JOIN tb_zone z ON z.id = a.data_1
+        WHERE
+        1=1
+        <if test="indexCondition!=null and indexCondition!='' ">
+            AND a.activity_name like '%${indexCondition}%'
+        </if>
+        AND
+        a.status=1
+        and a.is_check = 1
+        ORDER BY a.create_date DESC
+        limit ${(page-1)*pageSize},${pageSize}
+    </select>
+
+
+    <select id="getListPage" parameterType="hashmap" resultType="hashmap">
+        SELECT
+            a.id,
+            a.activity_name AS activityName,
+            a.activity_address AS address,
+            a.activity_contacts AS contacts,
+            a.activity_count AS count,
+            a.activity_introduce AS introduce,
+            a.activity_price AS activityPrice,
+            a.activity_type AS ActivityType,
+            a.contacts_phone AS phone,
+            a.declares,
+            a.end_date AS endDate,
+            a.start_date AS startDate,
+            a.enroll_date AS enrollDate,
+            a.is_free AS isFree,
+            a.is_recommend AS isRecommend,
+            a.activity_path AS pictureUrl,
+            a.activity_real_path AS activityRealPath,
+            k.`name` AS kindsName,
+            z.`name` AS zoneName
+        FROM
+            tb_activity a
+        LEFT JOIN tb_kinds k ON k.id = a.sport_id
+        LEFT JOIN tb_zone z ON z.id = a.data_1
+        WHERE
+            a.`status` >= 0
+        AND a.is_check = 1
+        <if test="sportId != null and ''!=sportId">
+            AND a.sport_id = #{sportId}
+        </if>
+        <if test="zoneId != null and ''!=zoneId">
+            <if test="isAll != null and '' != isAll">
+                AND LOCATE(a.data_1, (
+                SELECT
+                GROUP_CONCAT(z.id)
+                FROM
+                tb_zone z
+                WHERE
+                z.pid = #{zoneId}
+                ))>0
+            </if>
+            <if test="isAll == null || '' == isAll">
+                AND a.data_1 = #{zoneId}
+            </if>
+        </if>
+        <if test="isFree != null and ''!=isFree">
+            AND a.is_free = #{isFree}
+        </if>
+        limit ${(page-1)*pagesize},${pagesize}
+
+    </select>
+
+
+</mapper>

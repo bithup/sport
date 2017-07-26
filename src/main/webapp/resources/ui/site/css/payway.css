@@ -1,0 +1,141 @@
+.content{
+	max-width: 640px;
+	font-family: '微软雅黑';
+}
+.payway_title{
+	text-align: center;
+	color: #333;
+	font-size: 20px;
+	width: 100%;
+	height: 50px;
+	line-height: 50px;
+	overflow: hidden;
+	background: #fff;
+	position: relative;
+}
+.payway_title .left{
+	float: left;
+	padding-left: 20px;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+.payway_title .left img{
+	width: 80%;
+	padding: 12px 0;
+}
+.payway_content{
+	width: 100%;
+	margin-top: 20px;
+	background: #fff;
+	min-height: 1026px;
+}
+.payway_content p{
+	font-size: 24px;
+	color: #505050;
+	text-align: center;
+	padding: 50px 0 24px;
+}
+.pay_m{
+	font-size: 30px;
+	color: #fec240;
+	display: block;
+	text-align: center;
+}
+.sel_payway{
+	font-size: 22px;
+	width: 94%;
+	margin: 27px auto 0;
+}
+.sel_payway li{
+	border-bottom: 1px solid #e5e6e6;
+	line-height: 36px;
+	padding: 27px 0 27px 0;
+}
+.sel_payway li:nth-child(1){
+	border-top: 1px solid #e5e6e6;
+	margin-top: 20px;
+}
+.alipay img{
+	float: left;
+	margin-right: 87px;
+}
+.cardpay img{
+	float: left;
+	margin-right: 59px;
+}
+.pay_btn{
+	width: 94%;
+	background: #ffae00;
+	font-size: 24px;
+	text-align: center;
+	margin: 0 auto;
+	border-radius: 8px;
+	margin-top: 198px;
+	padding: 19px 0;
+}
+.pay_btn a{
+	font-size: 24px;
+	color: #fff;
+	display: block;
+}
+.payway_active{
+	background: url(../images/select.png) right no-repeat;
+}
+@media screen and (min-width: 1024px) {
+	body,html{
+		font-size: 60px;
+	}
+	.payway_title{
+		font-size: .30rem;
+		height: .80rem;
+		line-height: .80rem;
+	}
+	.payway_title .left{
+		padding-left: .20rem;
+	}
+	.payway_title .left img{
+		padding: .19rem 0;
+	}
+	.payway_content{
+		margin-top: .20rem;
+		min-height: 10.26rem;
+	}
+	.payway_content p{
+		font-size: .24rem;
+		padding: .50rem 0 .24rem;
+	}
+	.pay_m{
+		font-size: .30rem;
+	}
+	.sel_payway{
+		font-size: .22rem;
+		margin: .27rem auto 0;
+	}
+	.sel_payway li{
+		line-height: .6rem;
+		padding: .27rem 0 .27rem 0;
+	}
+	.sel_payway li:nth-child(1){
+		margin-top: .20rem;
+	}
+	.alipay img{
+		margin-right: .87rem;
+	}
+	.cardpay img{
+		margin-right: .59rem;
+	}
+	.pay_btn{
+		font-size: .24rem;
+		border-radius: 0.08rem;
+		margin-top: 1.98rem;
+		padding: .19rem 0;
+	}
+	.pay_btn a{
+		font-size: .24rem;
+	}
+	.payway_active{
+		background: url(../images/select.png) right no-repeat;
+		background-size: 5%;
+	}
+}

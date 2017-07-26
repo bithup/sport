@@ -1,0 +1,285 @@
+html{max-width: 640px;font-family: "微软雅黑" ;margin: 0;padding: 0;}
+body,ul{ margin:0;padding: 0;  }
+body{
+	background: #fff !important;
+}
+li{list-style: none;}
+/*标题*/
+.yd-title ul li {
+    width: 33.3%;
+    float: left;
+    line-height: 91px;
+    text-align: center;
+    font-size: 32px;
+}
+.yd-title a{
+	overflow: hidden;
+	display: inline-block;
+}
+.title-left a{
+	width: 22px;
+    height: 44px;
+    background: url(../images/return.png) no-repeat 0 0;
+    background-size: cover;
+    float: left;
+    margin: 23px 0 0 10px;
+}
+.title-right a{
+	width: 38px;
+    height: 38px;
+    background: url(../images/shezhi.png) no-repeat 0 0;
+    background-size: cover;
+    float:right;
+    margin: 28px;
+}
+/*头像*/
+.yd-bg{
+	width: 100%;
+	height: 430px;
+	clear: both;
+    background: url(../images/yd-bg.png) no-repeat 0 0;
+    background-size: 100%;
+}
+.yd-bg img {
+    margin-top:105px;
+}
+p {
+	color: #fff;
+    text-align: center;
+    font-size: 24px;
+}
+.circular{
+	text-align: center;
+}
+.circular img {
+    width: 117px;
+    height: 117px;
+    border: 6px solid rgba(255,255,255,0.4);
+    border-radius: 60px;
+}
+/*内容*/
+.kong{
+	width: 100%;
+	height: 10px;
+	background: #eee;
+	border-bottom: 1px solid #ddd;
+	border-top: 1px solid #ddd;
+}
+.goods ,.purse ,.collect ,.activity ,.set ,.password ,.exit
+	{
+	margin: 0 15px 0 15px;
+	line-height:63px;
+	border-bottom: 1px solid #ddd;
+	text-indent: 30px;
+	font-size: 26px;
+	padding-left: 41px;
+}
+.goods a ,.purse a ,.collect a ,.activity a ,.set a ,.password a ,.exit a{
+    width: 28px;
+    height: 34px;
+    background: url(../images/link.png) no-repeat 0 0;
+    background-size: cover;
+    float: right;
+    margin: 13px 0 0 10px;
+}
+.goods{
+	background: url(../images/login_order.png) no-repeat 11px 50%;
+	background-size: 4%;
+}
+.purse{
+	background: url(../images/login_purse.png) no-repeat 11px 50%;
+	background-size: 4%;
+}
+.collect{
+	background: url(../images/login_favorite.png) no-repeat 11px 50%;
+	background-size: 4%;
+}
+
+.activity{
+	background: url(../images/login_active.png) no-repeat 11px 50%;
+	background-size: 4%;
+}
+.set{
+	background: url(../images/setlittle.png) no-repeat 11px 50%;
+	background-size: 4%;
+}
+.password{
+	background: url(../images/modify_pwd.png) no-repeat 11px 50%;
+	background-size: 4%;
+}
+.exit{
+	background: url(../images/exit_logo.jpg) no-repeat 8px 50%;
+}
+.login-content{
+	position: relative;
+	padding-bottom: 103px;
+}
+.login-content .b{
+	width:95%;
+	border-bottom: 1px solid #ccc;
+	border-top: 1px solid #ccc;
+	overflow: hidden;
+	position: absolute;
+	top: 63px;
+	left: 15px;
+    line-height: 48px;
+    background: #f5f5f5;
+    display: none;
+    font-size: 24px;
+}
+.login-content .b .left{
+	float: left;
+	padding-left: 11%;
+}
+.login-content .b .right{
+	float: right;
+	padding-right: 11%;
+}
+.login-content a{
+	color: #333;
+	text-decoration: none;
+}
+.tb{
+	width:100%;
+	background: #f5f5f5;
+	position: fixed;
+	bottom: 0;
+}
+.tb ul{
+	width:100%;
+	margin:0 auto;
+	padding: 14px 0;
+	overflow: hidden;
+}
+.tb li{
+	float: left;
+	width: 20%;
+	text-align: center;
+	line-height: 20px;
+}
+.tb ul li a{
+	color: #333;
+	font-size: 24px;
+	display: inline-block;
+}
+.tb .cur a{
+	color: #ffac05;
+}
+.tb ul li img{
+	width: 44px;
+	height: 41px;
+	margin-bottom: 9px;
+}
+@media screen and (min-width: 1024px) {
+	body,html{
+		font-size: 60px;
+	}
+	/*标题*/
+	.yd-title ul li {
+		line-height: .91rem;
+		font-size: .32rem;
+	}
+	.title-left a{
+		width: .22rem;
+		height: .44rem;
+		background: url(../images/return.png) no-repeat 0 0;
+		background-size: cover;
+		margin: .23rem 0 0 .10rem;
+	}
+	.title-right a{
+		width: .38rem;
+		height: .38rem;
+		background: url(../images/shezhi.png) no-repeat 0 0;
+		background-size: cover;
+		margin: .28rem;
+	}
+	/*头像*/
+	.yd-bg{
+		height: 4.30rem;
+		background: url(../images/yd-bg.png) no-repeat 0 0;
+		background-size: 100%;
+	}
+	.yd-bg img {
+		margin-top:1.05rem;
+	}
+	p {
+		font-size: .24rem;
+	}
+	.circular img {
+		width: 1.17rem;
+		height: 1.17rem;
+		border: 0.06rem solid rgba(255,255,255,0.4);
+		border-radius: .60rem;
+	}
+	/*内容*/
+	.kong{
+		height: .10rem;
+	}
+	.goods ,.purse ,.collect ,.activity ,.set ,.password ,.exit
+	{
+		margin: 0 .15rem 0 .15rem;
+		line-height:.63rem;
+		text-indent: .30rem;
+		font-size: .26rem;
+		padding-left: .41rem;
+	}
+	.goods a ,.purse a ,.collect a ,.activity a ,.set a ,.password a ,.exit a{
+		width: .28rem;
+		height: .34rem;
+		background: url(../images/link.png) no-repeat 0 0;
+		background-size: cover;
+		margin: .13rem 0 0 .10rem;
+	}
+	.goods{
+		background: url(../images/login_order.png) no-repeat .11rem 50%;
+		background-size: 2.5%;
+	}
+	.purse{
+		background: url(../images/login_purse.png) no-repeat .11rem 50%;
+		background-size: 2.5%;
+	}
+	.collect{
+		background: url(../images/login_favorite.png) no-repeat .11rem 50%;
+		background-size: 2.5%;
+	}
+
+	.activity{
+		background: url(../images/login_active.png) no-repeat .11rem 50%;
+		background-size: 2.5%;
+	}
+	.set{
+		background: url(../images/setlittle.png) no-repeat .11rem 50%;
+		background-size: 2.5%;
+	}
+	.password{
+		background: url(../images/modify_pwd.png) no-repeat .11rem 50%;
+		background-size: 2.5%;
+	}
+	.exit{
+		background: url(../images/exit_logo.jpg) no-repeat 0.08rem 50%;
+		background-size: 3%;
+	}
+	.login-content{
+		padding-bottom: 1.03rem;
+	}
+	.login-content .b{
+		top: .63rem;
+		left: .15rem;
+		line-height: .48rem;
+		font-size: .24rem;
+	}
+	.tb ul{
+		padding: .14rem 0;
+	}
+	.tb li{
+		line-height: .20rem;
+	}
+	.tb ul li a{
+		font-size: .24rem;
+	}
+	.tb ul li img{
+		width: .44rem;
+		height: .41rem;
+		margin-bottom: 0.09rem;
+	}
+}
